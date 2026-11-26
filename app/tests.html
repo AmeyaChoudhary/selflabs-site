@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelfLabs logic tests</title>
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<style>
+  body { margin: 24px; font: 500 15px/22px -apple-system, 'Helvetica Neue', Arial, sans-serif; color: #0A1640; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p { margin: 0 0 16px; color: #5A688C; }
+  li { list-style: none; padding: 2px 0; }
+  ul { padding: 0; margin: 0; }
+  .ok::before { content: 'ok  '; color: #2457F5; font-weight: 600; }
+  .fail { color: #B3261E; }
+  .fail::before { content: 'FAIL  '; font-weight: 600; }
+  pre { margin: 2px 0 8px 44px; white-space: pre-wrap; color: #B3261E; }
+</style>
+</head>
+<body>
+<h1>SelfLabs logic tests</h1>
+<p id="summary">Running&hellip;</p>
+<ul id="list"></ul>
+<!-- The same checks run in a terminal with:
+     node -e "import('./js/tests.js').then(m => m.report())" -->
+<script type="module">
+  import { run } from './js/tests.js';
+  const results = run();
+  const list = document.getElementById('list');
+  for (const r of results) {
+    const li = document.createElement('li');
+    li.className = r.pass ? 'ok' : 'fail';
+    li.textContent = r.name;
+    list.appendChild(li);
+    if (!r.pass) {
+      const pre = document.createElement('pre');
+      pre.textContent = r.error;
+      list.appendChild(pre);
+    }
+  }
+  const failed = results.filter((r) => !r.pass).length;
+  document.getElementById('summary').textContent = `${results.length - failed} of ${results.length} passed`;
+  document.title = failed ? `${failed} FAILED` : 'All tests pass';
+</script>
+</body>
+</html>

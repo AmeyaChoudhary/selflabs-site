@@ -3,47 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SelfLabs · Find what works for you</title>
-<meta name="description" content="Tiny experiments. Ten seconds a day. In fourteen days, SelfLabs shows you what actually works for you.">
-<meta property="og:title" content="SelfLabs · Find what works for you">
-<meta property="og:description" content="Tiny experiments. Ten seconds a day.">
+<title>SelfLabs · Test one small change on yourself for 14 days</title>
+<meta name="description" content="SelfLabs is an app for high-school students. Try one small change, check in for ten seconds morning and night, and after 14 days it tells you whether it helped, did nothing, or it can't tell yet.">
+<meta property="og:title" content="SelfLabs · Test one small change on yourself for 14 days">
+<meta property="og:description" content="An app for high-school students. Try one small change, check in for ten seconds morning and night, and after 14 days see whether it helped.">
 <meta property="og:image" content="figures/og.png">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="assets/favicon.svg?v=2">
+<link rel="icon" href="assets/favicon.svg?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
-<link rel="stylesheet" href="assets/phone.css?v=2">
-<link rel="stylesheet" href="assets/motion.css?v=2">
+<link rel="stylesheet" href="assets/site.css?v=3">
+<link rel="stylesheet" href="assets/phone.css?v=3">
+<link rel="stylesheet" href="assets/motion.css?v=3">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="wrap">
     <nav class="nav" aria-label="Main">
       <a class="brand" href="./">
         <svg class="brand-nim" viewBox="12 14 96 96" aria-hidden="true"><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><path class="nim-eyes" d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></svg>
         SelfLabs
       </a>
-      <a class="pill" href="mockups/">See the app</a>
     </nav>
 
-    <div class="display hero-head">
-      <h1 class="hero-h"><span class="hl" style="--i:0">Find what <br class="br-s">works</span> <br><span class="hl blue" style="--i:1">for you.</span></h1><span class="hero-tail"><button class="nim-btn hero-nim" id="nim" type="button" data-mood="okay" aria-label="Nim. Poke it."><svg class="nim" viewBox="16 14 88 100" aria-hidden="true" data-look><ellipse cx="58" cy="110" rx="30" ry="3.5" fill="#E9F0FF"/><g class="nim-hop"><g class="nim-life"><g class="nim-pose"><path class="nim-up" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/></g><path class="nim-flat" d="M54 52C68 52 80 53 92 50.5C98 49 103 53.5 100 58.5C97 63.5 96 70 96 78C96 94 78 106 54 106C30 106 12 94 12 78C12 62 30 52 54 52Z" fill="#2457F5"/><g class="nim-look"><g class="nim-eyes"><path d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></g></g><g class="nim-spark-slot"><path class="nim-spark" d="M109 11C110 19 112 21 120 22C112 23 110 25 109 33C108 25 106 23 98 22C106 21 108 19 109 11Z" fill="#FFB23E"/></g></g></g></svg></button><span class="says hero-says" id="nim-says" role="status">This is Nim. <br class="br-l">Mildly unimpressed.</span></span>
-    </div>
+    <h1 class="hero-h">
+      <span class="swap" id="swap">
+        <span class="swap-does">Does</span>
+        <span class="swap-item is-on"><span class="swap-pad">Does </span>a 20-minute <br class="br-s">walk</span>
+        <span class="swap-item" aria-hidden="true"><span class="swap-pad">Does </span>phone down <br class="br-s">by 11:30</span>
+        <span class="swap-item" aria-hidden="true"><span class="swap-pad">Does </span>10 minutes <br class="br-s">with a friend</span>
+        <span class="swap-item" aria-hidden="true"><span class="swap-pad">Does </span>5 minutes <br class="br-s">outside first</span>
+      </span>
+      <span class="hero-rest">make your day <br class="br-s">better?</span>
+    </h1>
 
     <div class="hero-row">
       <div class="hero-copy">
-        <p class="line" style="--i:0">Tiny experiments.<br>Ten seconds a day.</p>
-        <a class="btn" href="mockups/" style="--i:1">See the app</a>
-        <p class="status" style="--i:2">Concept preview · first pilot December 2026</p>
+        <p class="hero-sub" style="--i:0">Test it on yourself for 14 days.</p>
+        <p class="hero-p" style="--i:1">SelfLabs is an app for high-school students. You try one small change. You check in for ten seconds, morning and night. After 14 days it tells you whether it helped, did nothing, or it can&rsquo;t tell yet.</p>
+        <p class="hero-cta" style="--i:2"><a class="btn" href="app/">Try it</a> <a class="tlink" href="mockups/">See every screen</a></p>
+        <p class="status" style="--i:3">Student project · first pilot December 2026</p>
       </div>
-      <div class="trio">
-        <div class="device" style="--i:0" data-screen="checkin" role="img" aria-label="App screen: Morning check-in"></div>
-        <div class="device" style="--i:1" data-plx-scroll="-0.05" data-screen="today" role="img" aria-label="App screen: Today"></div>
-        <div class="device" style="--i:2" data-plx-scroll="0.045" data-screen="playbook" role="img" aria-label="App screen: Your atlas"></div>
+      <div class="hero-phone">
+        <div class="device in-view" role="img" aria-label="App screen: tomorrow's experiment. A 20-minute walk after school, phone in your bag. Buttons: Swap, I'm in.">
+          <div class="phone"><div class="phone-screen"><div class="hx" id="hx">
+            <div class="hx-h">Tomorrow,<br><span class="blue">try this.</span></div>
+            <div class="hx-nim"><svg class="nim nim-bob" viewBox="0 0 120 120" width="96" height="96" aria-hidden="true"><path transform="rotate(-22 58 68)" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><g class="nim-eyes"><circle cx="33" cy="68" r="8.5" fill="#FFFFFF"/><circle cx="56" cy="72" r="5.5" fill="#FFFFFF"/></g></svg></div>
+            <div class="hx-card">
+              <svg class="hx-tints" viewBox="0 0 342 434" width="342" height="434" aria-hidden="true"><path class="hx-tint is-on" d="M44 8C120 2 236 2 298 10C330 15 338 44 338 104C338 215 340 332 332 386C326 422 296 432 190 432C92 432 26 433 12 396C1 362 4 235 3 118C2 46 8 14 44 8Z" fill="#FBC2C1"/><path class="hx-tint" d="M44 8C120 2 236 2 298 10C330 15 338 44 338 104C338 215 340 332 332 386C326 422 296 432 190 432C92 432 26 433 12 396C1 362 4 235 3 118C2 46 8 14 44 8Z" fill="#D9C9F8"/><path class="hx-tint" d="M44 8C120 2 236 2 298 10C330 15 338 44 338 104C338 215 340 332 332 386C326 422 296 432 190 432C92 432 26 433 12 396C1 362 4 235 3 118C2 46 8 14 44 8Z" fill="#A9E1CA"/><path class="hx-tint" d="M44 8C120 2 236 2 298 10C330 15 338 44 338 104C338 215 340 332 332 386C326 422 296 432 190 432C92 432 26 433 12 396C1 362 4 235 3 118C2 46 8 14 44 8Z" fill="#B2D7FD"/></svg>
+              <div class="hx-label">Experiment 1<span style="margin:0 3px 0 4px">·</span>for control</div>
+              <div class="hx-item is-on"><div class="hx-num">20</div><div class="hx-text"><div class="hx-unit">minute walk</div><div class="hx-detail">after school, phone in your bag</div></div></div>
+              <div class="hx-item"><div class="hx-num is-time">11<span class="hx-colon">:</span>30</div><div class="hx-text"><div class="hx-unit">phone down</div><div class="hx-detail">across the room, not next to your bed</div></div></div>
+              <div class="hx-item is-tall"><div class="hx-num">10</div><div class="hx-text"><div class="hx-unit">minutes with a friend</div><div class="hx-detail">a call or in person, no scrolling</div></div></div>
+              <div class="hx-item"><div class="hx-num">5</div><div class="hx-text"><div class="hx-unit">minutes outside</div><div class="hx-detail">before your first screen of the day</div></div></div>
+            </div>
+            <div class="hx-btns"><span class="hx-btn hx-swap">Swap</span><span class="hx-btn hx-in">I&rsquo;m in</span></div>
+          </div></div><i class="phone-island"></i></div>
+        </div>
       </div>
     </div>
   </div>
@@ -51,111 +70,161 @@
 
 <main>
 
-<section class="how">
-  <h2 class="vh">How it works</h2>
-  <div class="wrap">
-    <ol class="steps">
-      <li class="step">
-        <p class="step-head"><span class="num rv" style="--i:0">1</span><span class="step-text rv" style="--i:1">Try one<br>small thing.</span></p>
-        <div class="device rv rv-phone" style="--i:1" data-screen="experiment" role="img" aria-label="App screen: Tomorrow's experiment"></div>
-      </li>
-      <li class="step" data-plx="-14">
-        <p class="step-head"><span class="num rv" style="--i:1">2</span><span class="step-text rv" style="--i:2">Tap twice<br>a day.</span></p>
-        <div class="device rv rv-phone" style="--i:2" data-screen="checkout" role="img" aria-label="App screen: Night check-out"></div>
-      </li>
-      <li class="step" data-plx="-28">
-        <p class="step-head"><span class="num rv" style="--i:2">3</span><span class="step-text rv" style="--i:3">See what<br>changes.</span></p>
-        <div class="device rv rv-phone" style="--i:3" data-screen="insight" role="img" aria-label="App screen: First signal"></div>
-      </li>
-    </ol>
-  </div>
-  <div class="peek" aria-hidden="true">
-    <svg class="nim peek-nim" viewBox="14 14 92 96" data-look><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><g class="nim-look"><g class="nim-eyes"><circle cx="50" cy="62" r="6.5" fill="#FFFFFF"/><circle cx="74" cy="62" r="6.5" fill="#FFFFFF"/></g></g></svg>
-  </div>
-</section>
+<!-- 1. What do I actually do? One whole round, driven by the scroll position. The markup is the END state. -->
+<section class="round" id="round" data-state="final">
+  <div class="round-stage">
+    <div class="wrap">
+      <div class="round-grid">
+        <h2 class="headline round-h">One round is 14&nbsp;days.</h2>
+        <ol class="phases">
+          <li class="phase is-on"><b class="phase-k">Days 1&ndash;2</b> <span class="phase-t">Just check in.</span></li>
+          <li class="phase is-on"><b class="phase-k">Days 3&ndash;14</b> <span class="phase-t">Six days you walk<i class="sw sw-on"></i>, six you don&rsquo;t<i class="sw sw-off"></i>. The app picks which.</span></li>
+          <li class="phase is-on"><b class="phase-k">Day 14</b> <span class="phase-t">You get the answer.</span></li>
+        </ol>
 
-<section class="night">
-  <i class="night-floor"></i>
-  <div class="wrap night-grid">
-    <div class="night-copy">
-      <h2 class="headline rv">Mornings take <br>one tap.</h2>
-      <p class="line rv" style="--i:1">Then a 20-second game.</p>
-    </div>
-    <div class="night-stage">
-      <div class="device d-a" style="--i:0" data-screen="checkin" role="img" aria-label="App screen: Morning check-in"></div>
-      <div class="device d-m" style="--i:1" data-screen="game" role="img" aria-label="App screen: Wake-up game"></div>
-      <div class="device d-b" style="--i:2" data-screen="result" role="img" aria-label="App screen: Game result"></div>
-    </div>
-    <button class="toy" id="toy" type="button" data-state="idle" data-nim="asleep">
-      <svg class="nim toy-nim" viewBox="4 10 112 96" aria-hidden="true"><g class="nim-hop"><g class="toy-flat"><g class="nim-life"><path d="M54 52C68 52 80 53 92 50.5C98 49 103 53.5 100 58.5C97 63.5 96 70 96 78C96 94 78 106 54 106C30 106 12 94 12 78C12 62 30 52 54 52Z" fill="#2457F5"/><path d="M35 85q6.5 3.5 13 0M60 85q6.5 3.5 13 0" fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round"/></g><path class="toy-z" d="M100 34h7.5l-7.5 9.5h7.5" fill="none" stroke="#AFC6FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g><g class="toy-up"><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><g class="toy-eyes e-awake"><circle cx="48" cy="62" r="8.5" fill="#FFFFFF"/><circle cx="75" cy="62" r="8.5" fill="#FFFFFF"/></g><g class="toy-eyes e-okay"><path d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></g><g class="toy-eyes e-wink"><circle cx="55" cy="66" r="8" fill="#FFFFFF"/><path d="M72 65q6.5 4.5 13 0" fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round"/></g></g></g></svg>
-      <span class="toy-main" id="toy-main">Tap when Nim wakes.</span>
-      <span class="toy-says" id="toy-says"></span>
-      <span class="toy-pill" id="toy-pill">Play</span>
-    </button>
-    <p class="vh" id="toy-live" role="status"></p>
-  </div>
-</section>
+        <div class="round-day">
+          <p class="rc"><span class="rc-label">Day</span><span class="rc-num" id="rc-num">14</span></p>
+          <div class="rt">
+            <div class="rt-nim" aria-hidden="true"><svg class="nim" viewBox="10 8 112 98" data-look data-mood="proud"><g class="nim-hop"><g class="nim-life"><g class="nim-pose"><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/></g><g class="nim-look"><g class="m m-okay"><path class="nim-eyes" d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></g><g class="m m-curious"><g class="nim-eyes"><circle cx="60" cy="63" r="5.5" fill="#FFFFFF"/><circle cx="83" cy="59" r="8.5" fill="#FFFFFF"/></g></g><g class="m m-proud"><path d="M40 59q6.5 6.5 13 0M63 59q6.5 6.5 13 0" fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round"/></g></g></g><g class="m m-proud"><path class="nim-spark" d="M109 11C110 19 112 21 120 22C112 23 110 25 109 33C108 25 106 23 98 22C106 21 108 19 109 11Z" fill="#FFB23E"/></g></g></svg></div>
+            <div class="rt-cells" aria-hidden="true"><i class="rt-cell" data-t="base"><i class="rt-disc"></i></i><i class="rt-cell" data-t="base"><i class="rt-disc"></i></i><i class="rt-cell" data-t="on"><i class="rt-disc"></i></i><i class="rt-cell" data-t="off"><i class="rt-disc"></i></i><i class="rt-cell" data-t="on"><i class="rt-disc"></i></i><i class="rt-cell" data-t="on"><i class="rt-disc"></i></i><i class="rt-cell" data-t="off"><i class="rt-disc"></i></i><i class="rt-cell" data-t="off"><i class="rt-disc"></i></i><i class="rt-cell" data-t="on"><i class="rt-disc"></i></i><i class="rt-cell" data-t="off"><i class="rt-disc"></i></i><i class="rt-cell" data-t="off"><i class="rt-disc"></i></i><i class="rt-cell" data-t="on"><i class="rt-disc"></i></i><i class="rt-cell" data-t="on"><i class="rt-disc"></i></i><i class="rt-cell" data-t="off"><i class="rt-disc"></i></i></div>
+            <span class="rt-of">of 14</span>
+          </div>
+        </div>
 
-<section class="atlas">
-  <div class="wrap atlas-grid">
-    <div class="atlas-copy" data-plx="16">
-      <h2 class="atlas-h"><span class="atlas-day rv">Week</span> <span class="atlas-num rv" style="--i:1" data-count="8">8</span><span class="vh">.</span> <span class="headline rv" style="--i:2">Your atlas.</span></h2>
-      <p class="line rv" style="--i:3">A map of what works for you.</p>
-      <div class="atlas-perch">
-        <svg class="nim atlas-nim" viewBox="14 14 92 96" aria-hidden="true" data-look><g class="nim-hop"><path transform="rotate(8 58 68)" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><g class="nim-look"><g class="nim-eyes"><path transform="translate(4 0)" d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></g></g></g></svg>
-        <div class="atlas-says"><p class="says">Okay, fine. Walks work.</p></div>
+        <div class="chart chart-main" role="img" aria-label="How in control each day felt, from 1 to 5. Six walk days average 4.0. Eight other days average 2.8.">
+          <div class="ch-row ch-on"><span class="ch-name">Walk days</span><i class="ch-line"></i><i class="dot" style="--v:4;--s:0" data-day="3"></i><i class="dot" style="--v:4;--s:1" data-day="5"></i><i class="dot" style="--v:4;--s:2" data-day="6"></i><i class="dot" style="--v:4;--s:3" data-day="9"></i><i class="dot" style="--v:5;--s:0" data-day="12"></i><i class="dot" style="--v:3;--s:0" data-day="13"></i><i class="ch-mean" id="mean-on" style="--m:4"><b>4.0</b></i></div>
+          <div class="ch-row ch-off"><span class="ch-name">Other days</span><i class="ch-line"></i><i class="dot" style="--v:3;--s:0" data-day="1"></i><i class="dot" style="--v:2;--s:0" data-day="2"></i><i class="dot" style="--v:3;--s:1" data-day="4"></i><i class="dot" style="--v:3;--s:2" data-day="7"></i><i class="dot" style="--v:3;--s:3" data-day="8"></i><i class="dot" style="--v:2;--s:1" data-day="10"></i><i class="dot" style="--v:4;--s:0" data-day="11"></i><i class="dot" style="--v:2;--s:2" data-day="14"></i><i class="ch-mean" id="mean-off" style="--m:2.75"><b>2.8</b></i></div>
+          <div class="ch-axis" aria-hidden="true"><span>In control</span><span class="ax-1">1</span><span class="ax-5">5</span></div>
+        </div>
+
+        <div class="round-res">
+          <p class="res-num" id="res-num"><span class="pl">+</span>1<span class="pt">.</span>2</p>
+          <p class="res-line">In control: <b id="res-from">2.8</b><svg class="res-arrow" viewBox="0 0 20 20" fill="none" stroke="#0A1640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="to"><path d="M3.5 10h13M11.5 5l5 5-5 5"/></svg><b id="res-to">4.0</b></p>
+          <div class="res-labels"><p class="res-verdict">Works for you</p><p class="res-status" id="res-status"></p></div>
+          <p class="says res-says">Okay, fine. Walks work.</p>
+        </div>
       </div>
     </div>
-    <div class="device rv rv-phone" style="--i:1" data-plx="-22" data-screen="playbook" role="img" aria-label="App screen: Your atlas"></div>
   </div>
 </section>
 
-<section class="friends">
-  <div class="wrap friends-grid">
-    <div class="device rv rv-phone" data-plx="-16" data-screen="friends" role="img" aria-label="App screen: Friends"></div>
-    <div class="friends-copy">
-      <h2 class="headline rv" style="--i:1">Race your <br>friends.</h2>
-      <p class="line rv" style="--i:2">They see your score. Nothing else.</p>
+<!-- 2. What does a day cost me? -->
+<section class="day">
+  <i class="day-floor"></i>
+  <div class="wrap">
+    <div class="day-top">
+      <div class="day-copy">
+        <h2 class="headline rv">Morning: one tap. <br>Night: two.</h2>
+        <p class="line rv" style="--i:1">Then a 20-second reaction game. <span class="needs-js">Play a round.</span></p>
+      </div>
+      <button class="toy rv" style="--i:2" id="toy" type="button" data-state="idle" data-nim="asleep">
+        <svg class="nim toy-nim" viewBox="4 10 112 96" aria-hidden="true"><g class="nim-hop"><g class="toy-flat"><g class="nim-life"><path d="M54 52C68 52 80 53 92 50.5C98 49 103 53.5 100 58.5C97 63.5 96 70 96 78C96 94 78 106 54 106C30 106 12 94 12 78C12 62 30 52 54 52Z" fill="#2457F5"/><path d="M35 85q6.5 3.5 13 0M60 85q6.5 3.5 13 0" fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round"/></g><path class="toy-z" d="M100 34h7.5l-7.5 9.5h7.5" fill="none" stroke="#AFC6FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g><g class="toy-up"><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><g class="toy-eyes e-awake"><circle cx="48" cy="62" r="8.5" fill="#FFFFFF"/><circle cx="75" cy="62" r="8.5" fill="#FFFFFF"/></g><g class="toy-eyes e-okay"><path d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></g><g class="toy-eyes e-wink"><circle cx="55" cy="66" r="8" fill="#FFFFFF"/><path d="M72 65q6.5 4.5 13 0" fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round"/></g></g></g></svg>
+        <span class="toy-main" id="toy-main">Tap when Nim wakes.</span>
+        <span class="toy-says" id="toy-says"></span>
+        <span class="toy-pill" id="toy-pill">Play</span>
+      </button>
+      <p class="vh" id="toy-live" role="status"></p>
+    </div>
+    <div class="day-stage">
+      <div class="day-group">
+        <h3 class="day-label rv">Morning</h3>
+        <div class="day-phones">
+          <div class="device rv rv-phone" style="--i:0" data-screen="checkin" role="img" aria-label="App screen: morning check-in. How'd you wake up? Rough, okay or good."></div>
+          <div class="device rv rv-phone" style="--i:1" data-screen="game" role="img" aria-label="App screen: the reaction game. Tap when Nim wakes."></div>
+          <div class="device rv rv-phone" style="--i:2" data-screen="result" role="img" aria-label="App screen: game result, 287 milliseconds."></div>
+        </div>
+      </div>
+      <div class="day-group">
+        <h3 class="day-label rv" style="--i:3">Night</h3>
+        <div class="day-phones">
+          <div class="device rv rv-phone" style="--i:3" data-screen="checkout" role="img" aria-label="App screen: night check-out. In control today, 1 to 5? Did you do the walk, yes or no."></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="race">
-    <div class="racer is-asleep" style="--x:5%;--xs:0%" aria-hidden="true"><svg class="nim" viewBox="8 6 104 100"><g class="nim-life"><path d="M54 52C68 52 80 53 92 50.5C98 49 103 53.5 100 58.5C97 63.5 96 70 96 78C96 94 78 106 54 106C30 106 12 94 12 78C12 62 30 52 54 52Z" fill="#F0CBA5"/><path d="M35 85q6.5 3.5 13 0M60 85q6.5 3.5 13 0" fill="none" stroke="#0A1640" stroke-width="4.6" stroke-linecap="round"/></g></svg></div>
-    <p class="says race-says" style="--x:5%;--xs:0%">Jordan is still asleep.</p>
-    <div class="racer runner is-extra" style="--x:31%;--t:1.9s;--d:.24s;--hop:-1.2s" aria-hidden="true"><svg class="nim" viewBox="8 6 104 100"><path transform="translate(2 0) rotate(13 58 68)" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#D9C9F8"/><circle cx="62" cy="63" r="6" fill="#0A1640"/><circle cx="83" cy="60" r="6" fill="#0A1640"/></svg></div>
-    <div class="racer runner" style="--x:48%;--xs:44%;--t:1.6s;--d:.16s;--hop:-2.6s" aria-hidden="true"><svg class="nim" viewBox="8 6 104 100"><path transform="translate(2 0) rotate(13 58 68)" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#A9E1CA"/><circle cx="62" cy="63" r="6" fill="#0A1640"/><circle cx="83" cy="60" r="6" fill="#0A1640"/></svg></div>
-    <div class="racer runner" style="--x:67%;--xs:64%;--t:1.35s;--d:.08s;--hop:-0.5s" aria-hidden="true"><svg class="nim" viewBox="8 6 104 100"><path transform="translate(2 0) rotate(13 58 68)" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><circle cx="62" cy="63" r="6" fill="#FFFFFF"/><circle cx="83" cy="60" r="6" fill="#FFFFFF"/></svg></div>
-    <div class="racer runner" style="--x:86%;--xs:84%;--t:1.1s;--d:0s;--hop:-1.9s" aria-hidden="true"><svg class="nim" viewBox="8 6 104 100"><path transform="translate(2 0) rotate(13 58 68)" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#FBC2C1"/><circle cx="62" cy="63" r="6" fill="#0A1640"/><circle cx="83" cy="60" r="6" fill="#0A1640"/></svg></div>
+</section>
+
+<!-- 3. What do I get? -->
+<section class="get">
+  <div class="wrap">
+    <h2 class="headline rv">On day 14, one of <br>three answers.</h2>
+    <p class="line get-line rv" style="--i:1">It compares your walk days<i class="sw sw-fill"></i> with your other days<i class="sw sw-ring"></i>.</p>
+    <ul class="outs">
+      <li class="out rv" style="--i:0">
+        <div class="chart" role="img" aria-label="Walk days average 4.0, other days 2.8.">
+          <div class="ch-row ch-on"><i class="ch-line"></i><i class="dot" style="--v:4;--s:0;--k:0"></i><i class="dot" style="--v:4;--s:1;--k:1"></i><i class="dot" style="--v:4;--s:2;--k:2"></i><i class="dot" style="--v:4;--s:3;--k:3"></i><i class="dot" style="--v:5;--s:0;--k:4"></i><i class="dot" style="--v:3;--s:0;--k:5"></i><i class="ch-mean" style="--m:4"></i></div>
+          <div class="ch-row ch-off"><i class="ch-line"></i><i class="dot" style="--v:3;--s:0;--k:6"></i><i class="dot" style="--v:2;--s:0;--k:7"></i><i class="dot" style="--v:3;--s:1;--k:8"></i><i class="dot" style="--v:3;--s:2;--k:9"></i><i class="dot" style="--v:3;--s:3;--k:10"></i><i class="dot" style="--v:2;--s:1;--k:11"></i><i class="dot" style="--v:4;--s:0;--k:12"></i><i class="dot" style="--v:2;--s:2;--k:13"></i><i class="ch-mean" style="--m:2.75"></i></div>
+        </div>
+        <p class="out-num blue"><span class="pl">+</span>1<span class="pt">.</span>2</p>
+        <h3 class="out-name">Works for you</h3>
+      </li>
+      <li class="out rv" style="--i:1">
+        <div class="chart" role="img" aria-label="Walk days average 3.0, other days 2.9.">
+          <div class="ch-row ch-on"><i class="ch-line"></i><i class="dot" style="--v:3;--s:0;--k:0"></i><i class="dot" style="--v:2;--s:0;--k:1"></i><i class="dot" style="--v:3;--s:1;--k:2"></i><i class="dot" style="--v:3;--s:2;--k:3"></i><i class="dot" style="--v:4;--s:0;--k:4"></i><i class="dot" style="--v:3;--s:3;--k:5"></i><i class="ch-mean" style="--m:3"></i></div>
+          <div class="ch-row ch-off"><i class="ch-line"></i><i class="dot" style="--v:2;--s:0;--k:6"></i><i class="dot" style="--v:3;--s:0;--k:7"></i><i class="dot" style="--v:4;--s:0;--k:8"></i><i class="dot" style="--v:2;--s:1;--k:9"></i><i class="dot" style="--v:3;--s:1;--k:10"></i><i class="dot" style="--v:4;--s:1;--k:11"></i><i class="dot" style="--v:3;--s:2;--k:12"></i><i class="dot" style="--v:2;--s:2;--k:13"></i><i class="ch-mean" style="--m:2.875"></i></div>
+        </div>
+        <p class="out-num is-flat"><span class="pl">+</span>0<span class="pt">.</span>1</p>
+        <h3 class="out-name">No effect for you</h3>
+      </li>
+      <li class="out rv" style="--i:2">
+        <div class="chart" role="img" aria-label="Walk days average 3.5, other days 3.0.">
+          <div class="ch-row ch-on"><i class="ch-line"></i><i class="dot" style="--v:3;--s:0;--k:0"></i><i class="dot" style="--v:4;--s:0;--k:1"></i><i class="dot" style="--v:3;--s:1;--k:2"></i><i class="dot" style="--v:4;--s:1;--k:3"></i><i class="dot" style="--v:4;--s:2;--k:4"></i><i class="dot" style="--v:3;--s:2;--k:5"></i><i class="ch-mean" style="--m:3.5"></i></div>
+          <div class="ch-row ch-off"><i class="ch-line"></i><i class="dot" style="--v:3;--s:0;--k:6"></i><i class="dot" style="--v:2;--s:0;--k:7"></i><i class="dot" style="--v:3;--s:1;--k:8"></i><i class="dot" style="--v:4;--s:0;--k:9"></i><i class="dot" style="--v:3;--s:2;--k:10"></i><i class="dot" style="--v:2;--s:1;--k:11"></i><i class="dot" style="--v:3;--s:3;--k:12"></i><i class="dot" style="--v:4;--s:1;--k:13"></i><i class="ch-mean" style="--m:3"></i></div>
+        </div>
+        <p class="out-num"><span class="pl">+</span>0<span class="pt">.</span>5</p>
+        <h3 class="out-name">Can&rsquo;t tell. Worth another round.</h3>
+      </li>
+    </ul>
+    <div class="atlas-row">
+      <h3 class="headline atlas-h rv">Each finished round fills one region of your atlas.</h3>
+      <div class="device rv rv-phone" style="--i:1" data-screen="playbook" role="img" aria-label="App screen: your atlas, a map with one coloured region per finished experiment."></div>
+    </div>
   </div>
 </section>
 
+<!-- 4. What is it not? -->
+<section class="nots">
+  <div class="wrap">
+    <h2 class="vh">What SelfLabs is not</h2>
+    <ul class="not-list">
+      <li class="not rv">Not a blocker. <span class="not-why">It never stops an app from opening.</span></li>
+      <li class="not rv" style="--i:1">Not a screen-time report.</li>
+      <li class="not rv" style="--i:2">Not a diagnosis.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. Who sees my data? -->
 <section class="privacy">
   <div class="wrap">
-    <h2 class="display privacy-h rv">Yours only.</h2>
+    <h2 class="headline rv">Only you see your answers.</h2>
     <div class="deal">
       <div class="sees rv rv-left" style="--i:2">
-        <h3 class="deal-label">Sees</h3>
-        <ul class="deal-list"><li class="deal-item">App time</li><li class="deal-item">Sleep</li><li class="deal-item">Steps</li></ul>
+        <h3 class="deal-label">On your phone</h3>
+        <ul class="deal-list"><li class="deal-item">Check-ins</li><li class="deal-item">Game scores</li></ul>
       </div>
       <div class="deal-mid">
         <svg class="nim deal-nim rv rv-pop" style="--i:1" viewBox="14 14 92 96" role="img" aria-label="Nim, one eye open" data-look><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><g class="nim-look"><circle class="nim-eyes" cx="55" cy="66" r="8" fill="#FFFFFF"/><path d="M72 65q6.5 4.5 13 0" fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round"/></g></svg>
         <p class="says rv" style="--i:4">Not looking.</p>
       </div>
       <div class="never rv rv-right" style="--i:2">
-        <h3 class="deal-label">Never</h3>
-        <ul class="deal-list"><li class="deal-item">Messages</li><li class="deal-item">Photos</li><li class="deal-item">Grades</li></ul>
+        <h3 class="deal-label">Never read</h3>
+        <ul class="deal-list"><li class="deal-item"><span class="strike" style="--k:0">Messages</span></li><li class="deal-item"><span class="strike" style="--k:1">Photos</span></li><li class="deal-item"><span class="strike" style="--k:2">Grades</span></li></ul>
       </div>
     </div>
-    <p class="line rv" style="--i:2">It stays on your phone.</p>
+    <p class="line rv" style="--i:2">Nothing is uploaded. Parents and school can&rsquo;t see it.</p>
   </div>
 </section>
 
+<!-- 6. Closing -->
 <section class="closing">
   <div class="wrap closing-grid">
     <div>
-      <h2 class="display closing-h"><span class="cl rv" style="--i:0">Fourteen days.</span> <span class="cl rv" style="--i:1">One study.</span> <span class="cl rv" style="--i:2">You.</span></h2>
-      <a class="btn rv" style="--i:4" href="mockups/">See the app</a>
+      <h2 class="display closing-h rv">Start a 14-day round.</h2>
+      <p class="line rv" style="--i:1">No account. Runs in your browser.</p>
+      <a class="btn rv" style="--i:2" href="app/">Try it</a>
     </div>
-    <div class="closing-nim rv rv-pop" style="--i:2" data-plx="14" data-poke>
+    <div class="closing-nim rv rv-pop" style="--i:1" data-poke>
       <svg class="nim nim-bob" viewBox="0 0 120 120" role="img" aria-label="Nim, proud"><g class="nim-hop"><path transform="rotate(-10 58 68)" d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#FFFFFF"/><path d="M40 59q6.5 6.5 13 0M63 59q6.5 6.5 13 0" fill="none" stroke="#2457F5" stroke-width="4.6" stroke-linecap="round"/></g><path class="nim-spark" d="M109 11C110 19 112 21 120 22C112 23 110 25 109 33C108 25 106 23 98 22C106 21 108 19 109 11Z" fill="#FFB23E"/></svg>
     </div>
   </div>
@@ -165,11 +234,11 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p class="foot-text">SelfLabs is a student project in early design. Screens show sample data. Not a medical product. If you're struggling, call or text 988 in the US.</p>
+    <p class="foot-text">SelfLabs is a student project in early design. Screens show sample data. Not a medical product. If you&rsquo;re struggling, call or text 988 in the US.</p>
   </div>
 </footer>
 
-<script src="assets/screens.js?v=2"></script>
+<script src="assets/screens.js?v=3"></script>
 <script>
 (function () {
   'use strict';
@@ -177,35 +246,34 @@
   var reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
   function $(s, c) { return (c || doc).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); }
+  function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
   function squash(el) {
     el.classList.remove('is-squash');
     void el.offsetWidth;
     el.classList.add('is-squash');
   }
 
-  /* ---- phones: the screens are pictures here, keep their buttons out of the tab order ---- */
-  mountPhones();
+  /* ---- phones: the screens are pictures here, keep their contents out of the tab order ---- */
+  if (window.mountPhones) mountPhones();
   $$('.phone').forEach(function (p) { p.inert = true; });
 
   try {
     reveals();
-    drift();
-    hero();
-    peek();
+    eyes();
+    examples();
+    story();
     game();
     $$('[data-poke]').forEach(function (el) { el.addEventListener('pointerdown', function () { squash(el); }); });
   } catch (err) {
     root.classList.remove('js');   // anything hidden-until-revealed comes back
+    var r = $('#round');
+    if (r) r.classList.remove('is-scrub');
   }
 
   /* ---- reveal on scroll; also starts the animations inside each phone ---- */
   function reveals() {
-    var targets = $$('.rv, .device, .race, .peek, .night-stage');
-    function show(el) {
-      el.classList.add('is-in', 'in-view');
-      if (el.classList.contains('night-stage')) el.parentNode.parentNode.classList.add('is-in');
-      if (el.hasAttribute('data-count')) { count(el); $('.atlas-perch').classList.add('is-in'); }
-    }
+    var targets = $$('.rv, .device[data-screen]');
+    function show(el) { el.classList.add('is-in', 'in-view'); }
     if (!('IntersectionObserver' in window)) { targets.forEach(show); return; }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -215,43 +283,15 @@
     targets.forEach(function (t) { io.observe(t); });
   }
 
-  function count(el) {
+  /* ---- Nim's eyes follow the mouse (one rAF loop, only while something is still moving) ---- */
+  function eyes() {
     if (reduce) return;
-    var to = +el.getAttribute('data-count'), n = 1;
-    el.textContent = '1';
-    // discrete digits on timers (not rAF) so it always finishes, slowing as it lands
-    (function next() {
-      setTimeout(function () {
-        n += 1;
-        el.textContent = String(n);
-        if (n < to) next();
-      }, (n === 1 ? 220 : 60) + 14 * n * (n - 1) / 2);
-    })();
-  }
-
-  /* ---- one rAF loop: parallax drift and Nim's eyes ---- */
-  function drift() {
-    if (reduce) return;
-    var canTranslate = window.CSS && CSS.supports && CSS.supports('translate', '0 1px');
-    var plx = canTranslate ? $$('[data-plx]').map(function (el) { return { el: el, k: +el.getAttribute('data-plx'), scroll: false }; })
-      .concat($$('[data-plx-scroll]').map(function (el) { return { el: el, k: +el.getAttribute('data-plx-scroll'), scroll: true }; })) : [];
-    var eyes = $$('[data-look]').map(function (svg) { return { svg: svg, g: $('.nim-look', svg), x: 0, y: 0 }; });
-    var pointer = null, lastY = window.pageYOffset, speed = 0, queued = false;
-
+    var list = $$('[data-look]').map(function (svg) { return { svg: svg, g: $('.nim-look', svg), x: 0, y: 0 }; });
+    var pointer = null, queued = false;
     function frame() {
       queued = false;
-      var vh = window.innerHeight, y = window.pageYOffset, again = false;
-      plx.forEach(function (p) {
-        var v;
-        if (p.scroll) { v = Math.min(y, vh * 1.2) * p.k; }
-        else {
-          var r = p.el.parentNode.getBoundingClientRect();
-          if (r.bottom < -200 || r.top > vh + 200) return;
-          v = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / vh)) * p.k;
-        }
-        p.el.style.translate = '0 ' + v.toFixed(1) + 'px';
-      });
-      eyes.forEach(function (n) {
+      var vh = window.innerHeight, again = false;
+      list.forEach(function (n) {
         var r = n.svg.getBoundingClientRect();
         if (r.bottom < 0 || r.top > vh || !r.width) return;
         var tx = 0, ty = 0;
@@ -259,75 +299,157 @@
           var dx = pointer.x - (r.left + r.width / 2), dy = pointer.y - (r.top + r.height / 2);
           var d = Math.sqrt(dx * dx + dy * dy) || 1, pull = Math.min(1, d / 240);
           tx = dx / d * pull * 3.4; ty = dy / d * pull * 2.4;
-        } else {
-          ty = Math.max(-2.4, Math.min(2.4, speed / 14));
         }
         n.x += (tx - n.x) * 0.16; n.y += (ty - n.y) * 0.16;
         if (Math.abs(tx - n.x) + Math.abs(ty - n.y) > 0.03) again = true;
         n.g.style.transform = 'translate(' + n.x.toFixed(2) + 'px,' + n.y.toFixed(2) + 'px)';
       });
-      speed *= 0.86;
-      if (Math.abs(speed) > 0.4) again = true;
       if (again) kick();
     }
     function kick() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
-
-    window.addEventListener('scroll', function () {
-      var y = window.pageYOffset; speed = y - lastY; lastY = y; kick();
-    }, { passive: true });
-    window.addEventListener('resize', kick, { passive: true });
     window.addEventListener('pointermove', function (e) {
       if (e.pointerType === 'mouse') { pointer = { x: e.clientX, y: e.clientY }; kick(); }
     }, { passive: true });
+    window.addEventListener('scroll', function () { if (pointer) kick(); }, { passive: true });
     root.addEventListener('mouseleave', function () { pointer = null; kick(); });
-    kick();
   }
 
-  /* ---- the hero Nim: poke it to cycle moods ---- */
-  function hero() {
-    var nim = $('#nim'), says = $('#nim-says');
-    if (!nim) return;
-    var white = ' fill="none" stroke="#FFFFFF" stroke-width="4.6" stroke-linecap="round"/>';
-    var moods = [
-      { id: 'okay', pose: 'none', line: ['Back to normal.', 'Still unimpressed.'], eyes: '<path d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/>' },
-      { id: 'curious', pose: 'translate(2px, 0) rotate(13deg)', line: ['That was a poke.', 'Bold.'], eyes: '<circle cx="60" cy="63" r="5.5" fill="#FFFFFF"/><circle cx="83" cy="59" r="8.5" fill="#FFFFFF"/>' },
-      { id: 'happy', pose: 'translate(0, -9px) rotate(-16deg)', line: ['Fine.', 'That was nice.'], eyes: '<path d="M39 63q7 -10 14 0M63 63q7 -10 14 0"' + white },
-      { id: 'proud', pose: 'rotate(-10deg)', line: ['Did nothing.', 'Still proud.'], eyes: '<path d="M40 59q6.5 6.5 13 0M63 59q6.5 6.5 13 0"' + white },
-      { id: 'sleepy', pose: 'none', line: ['Enough.', 'Resting now.'], eyes: '<path d="M35 85q6.5 3.5 13 0M60 85q6.5 3.5 13 0"' + white }
-    ];
-    var at = 0, pose = $('.nim-pose', nim), eyes = $('.nim-eyes', nim);
-    nim.addEventListener('click', function () {
-      at = (at + 1) % moods.length;
-      var m = moods[at];
-      nim.setAttribute('data-mood', m.id);
-      pose.style.transform = m.pose;
-      eyes.innerHTML = m.eyes;
-      says.textContent = m.line[0] + ' ';
-      var br = doc.createElement('br'); br.className = 'br-l';
-      says.appendChild(br);
-      says.appendChild(doc.createTextNode(m.line[1]));
-      squash(nim);
-    });
-  }
-
-  /* ---- the Nim that peeks over the night and ducks when the pointer comes close ---- */
-  function peek() {
-    var box = $('.peek');
-    if (!box || reduce) return;
-    var back = 0;
-    function duck(ms) {
-      box.classList.add('is-duck');
-      clearTimeout(back);
-      back = setTimeout(function () { box.classList.remove('is-duck'); }, ms);
+  /* ---- hero: the example in the headline and the card in the phone change together ---- */
+  function examples() {
+    var lines = $$('#swap .swap-item'), hx = $('#hx');
+    if (reduce || lines.length < 2 || !hx) return;
+    var cards = $$('.hx-item', hx), tints = $$('.hx-tint', hx);
+    var at = 0, seen = true, back = 0;
+    function leave(el) {
+      el.classList.remove('is-on');
+      el.classList.add('is-out');
+      setTimeout(function () { el.classList.remove('is-out'); }, 800);
     }
-    window.addEventListener('pointermove', function (e) {
-      if (e.pointerType !== 'mouse') return;
-      var r = box.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > window.innerHeight) return;
-      var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
-      if (dx * dx + dy * dy < 170 * 170) duck(900);
-    }, { passive: true });
-    $('.peek-nim', box).addEventListener('pointerdown', function () { duck(1800); });
+    function go(n) {
+      leave(lines[at]); leave(cards[at]);
+      tints[at].classList.remove('is-on');
+      at = n;
+      lines[at].classList.add('is-on'); cards[at].classList.add('is-on'); tints[at].classList.add('is-on');
+      hx.classList.add('is-swap');           // Nim ducks behind the card, "Swap" is pressed
+      clearTimeout(back);
+      back = setTimeout(function () { hx.classList.remove('is-swap'); }, 260);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { seen = en[0].isIntersecting; }).observe($('.hero'));
+    }
+    setInterval(function () { if (seen && !doc.hidden) go((at + 1) % lines.length); }, 3600);
+  }
+
+  /* ---- the 14-day round. Scroll position in, transforms and opacity out. Scrolling itself is never touched. ---- */
+  function story() {
+    var sec = $('#round');
+    if (!sec || reduce) return;
+    var stage = $('.round-stage', sec), grid = $('.round-grid', sec), track = $('.rt-cells', sec);
+    var nim = $('.rt-nim', sec), nimSvg = $('.nim', nim), count = $('#rc-num'), status = $('#res-status');
+    var num = $('#res-num'), from = $('#res-from'), to = $('#res-to'), meanOn = $('#mean-on'), meanOff = $('#mean-off');
+    var phases = $$('.phase', sec);
+    var days = $$('.rt-cell', sec).map(function (c) { return { t: c.getAttribute('data-t'), disc: $('.rt-disc', c), dot: null, v: 0 }; });
+    $$('.chart-main .dot', sec).forEach(function (el) {
+      var d = days[+el.getAttribute('data-day') - 1];
+      d.dot = el; d.v = +el.style.getPropertyValue('--v');
+    });
+    var N = days.length;
+    var W = days.map(function (d) { return d.t === 'base' ? 0.75 : 1; }), cum = [0];   // baseline days pass a little faster
+    W.forEach(function (w, i) { cum.push(cum[i] + w); });
+    var P0 = 0.04, P1 = 0.8;                 // the days run over this part of the scroll range; the rest holds the result
+    var endOn = +meanOn.style.getPropertyValue('--m'), endOff = +meanOff.style.getPropertyValue('--m');
+    var geo = { range: 1, step: 0, u: 0, drop: 0, hop: 0 };
+    var live = false, queued = false, key = '', shown = 0;
+
+    function out(t) { return 1 - Math.pow(1 - t, 3); }
+    function smooth(t) { return t * t * (3 - 2 * t); }
+    function avg(a) { var s = 0; a.forEach(function (x) { s += x; }); return a.length ? s / a.length : 0; }
+    function r1(x) { return Math.round(x * 10 + 1e-9) / 10; }
+    function signed(x) {
+      var s = Math.abs(x).toFixed(1).split('.');
+      return '<span class="pl">' + (x < 0 ? '−' : '+') + '</span>' + s[0] + '<span class="pt">.</span>' + s[1];
+    }
+    function place(el, m, end) {
+      el.style.transform = 'translateX(' + ((m - end) * geo.u).toFixed(1) + 'px)';
+      el.firstChild.textContent = r1(m).toFixed(1);
+    }
+
+    // everything that changes in steps: the counter, the labels, the numbers, Nim's mood
+    function settle(today, done) {
+      if (today !== shown) {
+        count.textContent = today;
+        if (shown) { count.classList.remove('is-tick'); void count.offsetWidth; count.classList.add('is-tick'); squash(nim); }
+        shown = today;
+      }
+      var a = [], b = [], offs = 0, k;
+      for (k = 0; k < done; k++) {
+        if (days[k].t === 'on') a.push(days[k].v);
+        else { b.push(days[k].v); if (days[k].t === 'off') offs++; }
+      }
+      var ready = a.length >= 3 && offs >= 3, fin = done === N;     // the app's own rule for when there is anything to say
+      sec.setAttribute('data-state', fin ? 'final' : ready ? 'early' : 'none');
+      if (ready) {
+        var mOn = r1(avg(a)), mOff = r1(avg(b));
+        num.innerHTML = signed(r1(mOn - mOff));
+        from.textContent = mOff.toFixed(1); to.textContent = mOn.toFixed(1);
+        place(meanOn, avg(a), endOn); place(meanOff, avg(b), endOff);
+      }
+      status.textContent = fin ? '' : ready ? 'Early signal · ' + done + ' days' : 'Nothing to show yet.';
+      nimSvg.setAttribute('data-mood', fin ? 'proud' : days[today - 1].t === 'on' ? 'curious' : 'okay');
+      var ph = fin ? 2 : today <= 2 ? 0 : 1;
+      phases.forEach(function (el, n) { el.classList.toggle('is-on', n === ph); });
+    }
+
+    function render() {
+      queued = false;
+      if (!live) return;
+      var top = sec.getBoundingClientRect().top, vh = window.innerHeight;
+      if (top > vh * 2 || top < -(geo.range + vh * 2)) return;
+      var p = clamp(-top / geo.range, 0, 1);
+      var q = clamp((p - P0) / (P1 - P0), 0, 1) * cum[N], i = 0;
+      while (i < N - 1 && q >= cum[i + 1]) i++;
+      var f = clamp((q - cum[i]) / W[i], 0, 1), d = i + f, done = 0, k, s, t;   // d: days gone by, as a fraction
+      for (k = 0; k < N; k++) {
+        s = k ? clamp((d - k) / 0.25, 0, 1) : 1;                 // the day shows up on the track as it starts
+        days[k].disc.style.transform = 'scale(' + out(s).toFixed(3) + ')';
+        t = clamp((d - k - 0.45) / 0.45, 0, 1);                  // that night's check-out drops into the chart
+        days[k].dot.style.transform = 'translate3d(0,' + (-(1 - out(t)) * geo.drop).toFixed(1) + 'px,0)';
+        days[k].dot.style.opacity = clamp(t * 4, 0, 1).toFixed(2);
+        if (d - k >= 0.9) done = k + 1;
+      }
+      var h = i ? clamp(f / 0.3, 0, 1) : 1, pos = i ? i - 1 + smooth(h) : 0;   // Nim hops to today
+      nim.style.transform = 'translate3d(' + ((pos - (N - 1)) * geo.step).toFixed(1) + 'px,' + (-Math.sin(Math.PI * h) * geo.hop).toFixed(1) + 'px,0)';
+      if (key !== (key = (i + 1) + '|' + done)) settle(i + 1, done);
+    }
+    function kick() { if (!queued) { queued = true; requestAnimationFrame(render); } }
+
+    function rest() {            // back to the static end state the markup describes
+      days.forEach(function (d) { d.disc.style.transform = ''; d.dot.style.transform = ''; d.dot.style.opacity = ''; });
+      nim.style.transform = ''; key = '';
+      settle(N, N);
+      meanOn.style.transform = ''; meanOff.style.transform = '';
+    }
+    function measure() {
+      sec.classList.add('is-scrub');
+      if (grid.offsetHeight > stage.clientHeight - 12) {      // the stage must fit the window, otherwise stay static
+        sec.classList.remove('is-scrub');
+        if (live) { live = false; rest(); }
+        return;
+      }
+      live = true;
+      geo.range = Math.max(1, sec.offsetHeight - stage.offsetHeight);
+      geo.step = track.getBoundingClientRect().width / N;
+      geo.u = days[0].dot.offsetLeft - days[1].dot.offsetLeft;   // one point on the scale (day 1 scored 3, day 2 scored 2)
+      geo.drop = days[0].dot.offsetWidth * 2.4;
+      geo.hop = nim.offsetWidth * 0.2;
+      key = '';
+    }
+
+    measure(); render();
+    window.addEventListener('scroll', kick, { passive: true });
+    window.addEventListener('resize', function () { measure(); kick(); }, { passive: true });
+    window.addEventListener('load', function () { measure(); kick(); });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { measure(); kick(); });
   }
 
   /* ---- the reaction game. Nothing is stored or sent. ---- */

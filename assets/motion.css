@@ -34,3 +34,14 @@
 @keyframes nudge-slide{0%{opacity:0;transform:translateY(72px)}70%{opacity:1;transform:translateY(-4px)}100%{opacity:1;transform:translateY(0)} }
 @keyframes nudge-bump{0%,100%{transform:translateY(0)}45%{transform:translateY(-7px)} }
 @keyframes nudge-glance{from{transform:translate(9px,-8px)}to{transform:translate(0,0)} }
+@keyframes how-toss{0%{opacity:0;transform:translateY(96px) scaleY(1)}12%{opacity:1}38%{transform:translateY(-22px) scaleY(.14)}58%{transform:translateY(-30px) scaleY(1)}80%{transform:translateY(-10px) scaleY(.14)}100%{opacity:1;transform:translateY(0) scaleY(1)} }
+@keyframes swap-fill{from{transform:scale(0)}to{transform:scale(1)} }
+@keyframes consent-drop{0%{opacity:0;transform:translateY(-44px) rotate(7deg)}70%{opacity:1;transform:translateY(3px) rotate(-1deg)}100%{opacity:1;transform:translateY(0) rotate(0deg)} }
+@keyframes consent-glance{from{transform:translate(20px,4px)}to{transform:translate(0,0)} }
+@keyframes today-off-flop{0%{opacity:0;transform:translateY(-44px) scale(1,1)}50%{opacity:1;transform:translateY(0) scale(1.1,.84)}100%{opacity:1;transform:translateY(0) scale(1,1)} }
+@keyframes today-missed-land{0%{opacity:0;transform:translateY(-44px) scale(1,1)}55%{opacity:1;transform:translateY(0) scale(1.08,.88)}100%{opacity:1;transform:translateY(0) scale(1,1)} }
+@keyframes atlas-empty-fill{from{transform:scale(0)}to{transform:scale(1)} }
+@keyframes atlas-empty-pulse{0%,100%{opacity:.1}50%{opacity:.6} }
+@keyframes day14-land{0%{opacity:0;transform:translateY(-40px) scale(1,1)}20%{opacity:1}55%{transform:translateY(0) scale(1,1)}74%{transform:translateY(0) scale(1.08,.9)}100%{opacity:1;transform:translateY(0) scale(1,1)} }
+@keyframes insight-unsure-drop{0%{opacity:0;transform:translateY(-44px)}25%{opacity:1}68%{transform:translateY(0)}84%{transform:translateY(-3px)}100%{opacity:1;transform:translateY(0)} }
+@keyframes insight-unsure-shrug{0%{opacity:0;transform:translateY(10px) rotate(-9deg)}45%{opacity:1;transform:translateY(-6px) rotate(4deg)}100%{opacity:1;transform:translateY(0) rotate(0deg)} }
