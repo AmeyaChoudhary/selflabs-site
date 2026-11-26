@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelfLabs — Find what works for you</title>
+<meta name="description" content="SelfLabs turns your days into tiny experiments and shows you what actually makes you feel in control. 10 seconds a day. No blocking. No lectures.">
+<meta property="og:title" content="SelfLabs — Find what works for you">
+<meta property="og:description" content="Tiny daily experiments. 10-second check-ins. In 14 days, a playbook that's actually yours.">
+<meta property="og:image" content="figures/og.png">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/phone.css">
+<style>
+  section { padding: clamp(88px, 12vw, 168px) 0; }
+  .center { text-align: center; }
+  .center .intro, .center .headline, .center .display { margin-left: auto; margin-right: auto; }
+
+  /* hero */
+  .hero { padding: clamp(64px, 9vw, 120px) 0 0; overflow: hidden; }
+  .hero .display { max-width: 9em; margin-top: 22px; }
+  .hero .intro { max-width: 25em; margin-top: 26px; }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+  .status { margin-top: 22px; font-size: 13.5px; color: var(--mute); }
+  .status i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--signal); margin-right: 8px; vertical-align: 1px; }
+  .trio { --z: 0.74; display: flex; justify-content: center; align-items: flex-start; gap: clamp(14px, 3vw, 44px); margin-top: clamp(48px, 6vw, 80px); padding-top: 4px; height: calc(720px * var(--z)); overflow: hidden; }
+  .trio .device:nth-child(1), .trio .device:nth-child(3) { transform: translateY(70px); }
+
+  /* statement */
+  .statement { background: var(--bg); }
+  .nots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 64px; text-align: left; }
+  .not { background: var(--paper); border-radius: 28px; padding: 30px 28px 34px; }
+  .not h3 { font-size: 28px; line-height: 1.08; letter-spacing: -0.035em; text-decoration: line-through; text-decoration-thickness: 2.5px; text-decoration-color: var(--signal); }
+  .not p { margin-top: 14px; color: var(--mute); font-size: 16.5px; line-height: 1.42; text-wrap: pretty; }
+  .not p b { color: var(--ink); font-weight: 600; }
+
+  /* steps */
+  .step { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(32px, 7vw, 110px); }
+  .step + .step { margin-top: clamp(88px, 11vw, 150px); }
+  .step .copy { max-width: 26em; }
+  .step .copy .headline { margin-top: 16px; }
+  .step .copy .intro { margin-top: 22px; }
+  .step .art { --z: 0.72; display: flex; justify-content: center; gap: 22px; }
+  .step.flip .art { order: -1; }
+  .how-head { margin-bottom: clamp(72px, 9vw, 120px); }
+
+  /* morning (dark) */
+  .morning { background: #000; color: #f5f5f7; }
+  .morning .intro, .morning .eyebrow { color: #98989f; }
+  .morning .art { --z: 0.72; display: flex; justify-content: center; gap: clamp(14px, 3vw, 40px); margin-top: clamp(56px, 7vw, 88px); }
+  .morning .phone { box-shadow: 0 0 0 1.5px #3a3a3c, 0 0 140px -30px rgba(255, 91, 31, 0.35); }
+  .morning .phone { border-color: #1c1c1e; }
+
+  /* playbook */
+  .playbook { background: var(--bg); }
+
+  /* privacy */
+  .deal { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 64px; text-align: left; }
+  .deal > div { border-radius: 28px; padding: 32px 30px 20px; }
+  .deal .sees { background: var(--ink); color: var(--paper); }
+  .deal .never { background: var(--bg); }
+  .deal .sees .eyebrow { color: #98989f; }
+  .deal ul { list-style: none; margin: 18px 0 0; padding: 0; }
+  .deal li { padding: 15px 0; border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent); font-size: clamp(18px, 2vw, 22px); font-weight: 600; letter-spacing: -0.025em; }
+  .deal .never li { color: var(--mute); }
+  .promise { margin-top: 44px; font-size: clamp(22px, 2.8vw, 34px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; text-wrap: balance; }
+  .promise span { color: var(--mute); }
+
+  /* closing */
+  .closing { padding-bottom: clamp(88px, 12vw, 150px); }
+  .closing .display { font-size: clamp(40px, 7vw, 88px); }
+
+  @media (max-width: 860px) {
+    .nots, .deal { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 1fr; text-align: center; }
+    .step .copy { margin: 0 auto; }
+    .step.flip .art { order: 0; }
+    .trio { --z: 0.5; }
+    .step .art, .morning .art { --z: 0.6; }
+  }
+  @media (max-width: 560px) {
+    .trio { --z: 0.36; gap: 8px; }
+    .trio .device:nth-child(1), .trio .device:nth-child(3) { transform: translateY(36px); }
+    .morning .art { --z: 0.4; }
+    .step .art { --z: 0.56; }
+    .step .art .device + .device { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="./"><svg width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" stroke="#0a0a0b" stroke-width="3" fill="none"/><circle cx="20.2" cy="12.4" r="4.6" fill="#ff5b1f"/></svg>SelfLabs</a>
+  <div class="nav-links"><a href="#how">How it works</a><a href="#morning">Mornings</a><a href="#privacy">Privacy</a><a class="pill" href="mockups/">See the app</a></div>
+</div></nav>
+
+<header class="hero center"><div class="wrap">
+  <p class="eyebrow">A study where n = you</p>
+  <h1 class="display">Find what works for <span style="color:var(--signal)">you.</span></h1>
+  <p class="intro">SelfLabs turns your days into tiny experiments, then shows you what actually makes you feel in control. Ten seconds a day.</p>
+  <div class="cta"><a class="pill lg" href="mockups/">See the app</a><a class="pill lg ghost" href="#how">How it works</a></div>
+  <p class="status"><i></i>Concept preview. First pilot with five students, December 2026.</p>
+  <div class="trio">
+    <div class="device" data-screen="experiment"></div>
+    <div class="device" data-screen="today"></div>
+    <div class="device" data-screen="insight"></div>
+  </div>
+</div></header>
+
+<section class="statement center"><div class="wrap">
+  <p class="eyebrow">Not another screen-time app</p>
+  <h2 class="headline" style="margin-top:16px;max-width:13em">You already know your screen time. So what?</h2>
+  <p class="intro" style="max-width:27em;margin-top:24px">A weekly report doesn't tell you what to do. A blocker just gets in your way until you delete it. SelfLabs does one thing neither can: it connects what you did to how you felt.</p>
+  <div class="nots">
+    <div class="not"><h3>Blocking.</h3><p>Open whatever you want, whenever you want. <b>SelfLabs never stands between you and an app.</b></p></div>
+    <div class="not"><h3>Lectures.</h3><p>No "you should sleep more." Just your own days, side by side. <b>You decide what to do about it.</b></p></div>
+    <div class="not"><h3>Homework.</h3><p>No journaling, no typing. <b>One tap in the morning, two at night.</b> That's the whole job.</p></div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="center how-head">
+    <p class="eyebrow">How it works</p>
+    <h2 class="headline" style="margin-top:16px">Try one small thing.<br>See what changes.</h2>
+  </div>
+
+  <div class="step">
+    <div class="copy">
+      <p class="eyebrow"><b>01</b> · Evening</p>
+      <h3 class="headline">One small thing at a time.</h3>
+      <p class="intro">A 20-minute walk. Phone across the room by 11:30. Calling a friend instead of scrolling. Small enough to say yes to. Some days you try it, some days you don't, so there's something to compare.</p>
+    </div>
+    <div class="art"><div class="device" data-screen="experiment"></div></div>
+  </div>
+
+  <div class="step flip">
+    <div class="copy">
+      <p class="eyebrow"><b>02</b> · Night</p>
+      <h3 class="headline">Two taps.<br>Done.</h3>
+      <p class="intro">How in control did today feel? Did you do the thing? Meanwhile your phone quietly notes the basics: sleep, pickups, when it went down for the night.</p>
+    </div>
+    <div class="art"><div class="device" data-screen="checkout"></div></div>
+  </div>
+
+  <div class="step">
+    <div class="copy">
+      <p class="eyebrow"><b>03</b> · A few days later</p>
+      <h3 class="headline">Cause, meet effect.</h3>
+      <p class="intro">Every dot is one of your days. When a pattern shows up, you see it, along with how sure we are. "Early signal" means exactly that.</p>
+    </div>
+    <div class="art"><div class="device" data-screen="insight"></div></div>
+  </div>
+</div></section>
+
+<section class="morning center" id="morning"><div class="wrap">
+  <p class="eyebrow">Mornings</p>
+  <h2 class="headline" style="margin-top:16px;max-width:12em">A check-in you can do with your eyes half open.</h2>
+  <p class="intro" style="max-width:26em;margin-top:24px">One tap. Then a 20-second reaction game, scored against your own usual. It's hard to fake, and more fun than a questionnaire.</p>
+  <div class="art">
+    <div class="device" data-screen="checkin"></div>
+    <div class="device" data-screen="game"></div>
+  </div>
+</div></section>
+
+<section class="playbook"><div class="wrap">
+  <div class="step flip">
+    <div class="copy">
+      <p class="eyebrow"><b>Day 14</b></p>
+      <h3 class="headline">Your playbook.</h3>
+      <p class="intro">After two weeks you get a short list nobody else has: the things that work for you, tested by you. Including the stuff that turned out not to matter.</p>
+      <p class="intro" style="margin-top:18px">Your friend who's fine on six hours of sleep? Good for them. This one's yours.</p>
+    </div>
+    <div class="art"><div class="device" data-screen="playbook"></div></div>
+  </div>
+  <div class="step" style="margin-top:clamp(88px, 11vw, 150px)">
+    <div class="copy">
+      <p class="eyebrow"><b>Lab partners</b></p>
+      <h3 class="headline">Better with friends.</h3>
+      <p class="intro">Race your friends on the morning game. Keep each other's streaks alive. They see your score, never your check-ins.</p>
+    </div>
+    <div class="art"><div class="device" data-screen="friends"></div></div>
+  </div>
+</div></section>
+
+<section id="privacy" class="center"><div class="wrap">
+  <p class="eyebrow">Privacy</p>
+  <h2 class="headline" style="margin-top:16px">Here's the deal.</h2>
+  <div class="deal">
+    <div class="sees"><p class="eyebrow">SelfLabs sees</p><ul><li>Which apps, and for how long</li><li>When your phone goes down at night</li><li>Sleep and steps, if you say yes</li></ul></div>
+    <div class="never"><p class="eyebrow">SelfLabs never sees</p><ul><li>Messages, photos, anything you type</li><li>What you watch, post or search</li><li>Your grades</li></ul></div>
+  </div>
+  <p class="promise">It stays on your phone. <span>Not your parents'. Not your school's. Yours.</span></p>
+</div></section>
+
+<section class="closing center" style="background:var(--bg)"><div class="wrap">
+  <h2 class="display" style="max-width:10em">Fourteen days. One study. You.</h2>
+  <div class="cta"><a class="pill lg" href="mockups/">See all twelve screens</a></div>
+  <p class="status">Built by high-school students, for high-school students.</p>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <p>SelfLabs is a student project in early design. Screens show sample data. SelfLabs is not a medical product and doesn't diagnose or treat anything. If you're struggling, call or text 988 in the US, any time.</p>
+  <p>© 2026 SelfLabs</p>
+</div></footer>
+
+<script src="assets/screens.js"></script>
+<script>mountPhones();</script>
+</body>
+</html>

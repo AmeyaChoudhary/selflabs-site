@@ -1,0 +1,62 @@
+/* SelfLabs — shared page styles (landing + mockup board) */
+:root {
+  --ink: #0a0a0b;
+  --paper: #ffffff;
+  --bg: #f5f5f7;
+  --mute: #6e6e73;
+  --faint: #aeaeb2;
+  --line: #e5e5ea;
+  --signal: #ff5b1f;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-size: 17px; line-height: 1.47; letter-spacing: -0.012em;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+.eyebrow {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute);
+}
+.eyebrow b { color: var(--signal); font-weight: 600; }
+
+.display { font-size: clamp(44px, 8.4vw, 104px); line-height: 0.98; font-weight: 700; letter-spacing: -0.045em; text-wrap: balance; }
+.headline { font-size: clamp(34px, 5.2vw, 64px); line-height: 1.03; font-weight: 700; letter-spacing: -0.038em; text-wrap: balance; }
+.title { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.12; font-weight: 700; letter-spacing: -0.028em; text-wrap: balance; }
+.intro { font-size: clamp(19px, 2vw, 24px); line-height: 1.36; color: var(--mute); letter-spacing: -0.018em; text-wrap: pretty; }
+.muted { color: var(--mute); }
+
+/* nav */
+.nav {
+  position: sticky; top: 0; z-index: 50; height: 52px;
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 18px; letter-spacing: -0.03em; }
+.brand svg { display: block; }
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: 13.5px; color: var(--mute); }
+.nav-links a:hover { color: var(--ink); }
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 15px; border-radius: 16px;
+  background: var(--ink); color: var(--paper) !important; font-size: 13.5px; font-weight: 500;
+}
+.pill.lg { height: 52px; padding: 0 28px; border-radius: 26px; font-size: 17px; font-weight: 600; }
+.pill.ghost { background: transparent; color: var(--ink) !important; box-shadow: inset 0 0 0 1px var(--line); }
+@media (max-width: 640px) { .nav-links a:not(.pill) { display: none; } }
+
+/* phones scale with one variable */
+.device { zoom: var(--z, 0.7); }
+
+footer.foot { border-top: 1px solid var(--line); padding: 36px 0 56px; font-size: 13px; color: var(--mute); }
+footer.foot .wrap { display: flex; flex-wrap: wrap; gap: 14px 40px; justify-content: space-between; }
+footer.foot p { max-width: 62ch; }

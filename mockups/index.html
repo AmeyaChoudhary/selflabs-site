@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelfLabs — App mockups v0.1</title>
+<meta name="description" content="SelfLabs app design board: twelve screens covering onboarding, the daily loop, insights and friends.">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/phone.css">
+<style>
+  body { background: var(--bg); }
+  .top { padding: 72px 0 8px; }
+  .top .intro { max-width: 30em; margin-top: 20px; }
+  .rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+  .rule { background: var(--paper); border-radius: 22px; padding: 22px 22px 24px; }
+  .rule .eyebrow { color: var(--signal); }
+  .rule h3 { font-size: 20px; line-height: 1.15; letter-spacing: -0.025em; margin-top: 10px; }
+  .rule p { font-size: 14.5px; line-height: 1.42; color: var(--mute); margin-top: 8px; text-wrap: pretty; }
+  .group { padding: 72px 0 0; }
+  .group-head { display: flex; align-items: baseline; gap: 16px; border-top: 1px solid var(--line); padding-top: 20px; }
+  .group-head .title { flex: none; }
+  .shots { display: flex; flex-wrap: wrap; gap: 44px 36px; margin-top: 36px; }
+  .shot { width: calc(414px * var(--z)); }
+  .shot figcaption { margin-top: 18px; }
+  .shot figcaption b { display: block; font-size: 16px; letter-spacing: -0.015em; margin-top: 4px; }
+  .shot figcaption span { display: block; font-size: 13.5px; line-height: 1.4; color: var(--mute); margin-top: 4px; text-wrap: pretty; }
+  figure { margin: 0; }
+  .board { --z: 0.56; padding-bottom: 96px; }
+  .board .wrap, .top .wrap { max-width: 1360px; }
+  .tokens { display: grid; grid-template-columns: 1.1fr 1fr; gap: 12px; margin-top: 36px; }
+  .tok { background: var(--paper); border-radius: 22px; padding: 26px; }
+  .swatches { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .sw { width: 92px; }
+  .sw i { display: block; height: 64px; border-radius: 14px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
+  .sw b { display: block; font-size: 13px; margin-top: 8px; }
+  .sw span { font: 500 11px/1.2 var(--mono); color: var(--mute); }
+  .type-big { font-size: 56px; line-height: 1; font-weight: 700; letter-spacing: -0.04em; margin-top: 16px; }
+  .type-mono { font: 500 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mute); margin-top: 14px; }
+  @media (max-width: 900px) { .rules { grid-template-columns: 1fr 1fr; } .tokens { grid-template-columns: 1fr; } .board { --z: 0.5; } .shots { gap: 36px 20px; } }
+  @media (max-width: 520px) { .rules { grid-template-columns: 1fr; } .board { --z: 0.4; } }
+
+  /* ?only=<id> renders a single phone for screenshots */
+  body.solo { background: transparent; display: grid; place-items: center; min-height: 100vh; }
+  body.solo > *:not(#solo) { display: none; }
+  #solo { padding: 28px; }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="../"><svg width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" stroke="#0a0a0b" stroke-width="3" fill="none"/><circle cx="20.2" cy="12.4" r="4.6" fill="#ff5b1f"/></svg>SelfLabs</a>
+  <div class="nav-links"><a href="#onboarding">Onboarding</a><a href="#daily-loop">Daily loop</a><a href="#payoff">Payoff</a><a href="#system">System</a><a class="pill" href="../">Website</a></div>
+</div></nav>
+
+<header class="top"><div class="wrap">
+  <p class="eyebrow">App mockups · v0.1 · <b>for discussion</b></p>
+  <h1 class="headline" style="margin-top:14px">Twelve screens.<br>Ten seconds a day.</h1>
+  <p class="intro">A first pass at the whole product: onboarding, the daily loop, the day-14 payoff, and the social layer. Every screen has one job and one obvious tap.</p>
+
+  <div class="rules">
+    <div class="rule"><p class="eyebrow">Rule 01</p><h3>Never in the way.</h3><p>No blocking, no timers before an app opens. If it interrupts posting a photo, it gets deleted.</p></div>
+    <div class="rule"><p class="eyebrow">Rule 02</p><h3>One tap, no typing.</h3><p>Check-ins are a face, a number, or a game. Two prompts a day at most.</p></div>
+    <div class="rule"><p class="eyebrow">Rule 03</p><h3>Show the cause.</h3><p>Not "you used Instagram for 2h". Instead: what you did, and how the next day felt.</p></div>
+    <div class="rule"><p class="eyebrow">Rule 04</p><h3>Yours only.</h3><p>Usage, never content. On the phone. Friends see game scores, nothing else.</p></div>
+  </div>
+</div></header>
+
+<main class="board"><div class="wrap" id="groups"></div>
+
+<section class="group" id="system"><div class="wrap">
+  <div class="group-head"><h2 class="title">System</h2><p class="muted">Black, white, and one signal colour. The orange only ever marks the thing that matters on a screen.</p></div>
+  <div class="tokens">
+    <div class="tok">
+      <p class="eyebrow">Colour</p>
+      <div class="swatches">
+        <div class="sw"><i style="background:#0a0a0b"></i><b>Ink</b><span>#0A0A0B</span></div>
+        <div class="sw"><i style="background:#fff"></i><b>Paper</b><span>#FFFFFF</span></div>
+        <div class="sw"><i style="background:#f2f2f7"></i><b>Fill</b><span>#F2F2F7</span></div>
+        <div class="sw"><i style="background:#6e6e73"></i><b>Mute</b><span>#6E6E73</span></div>
+        <div class="sw"><i style="background:#ff5b1f"></i><b>Signal</b><span>#FF5B1F</span></div>
+      </div>
+    </div>
+    <div class="tok">
+      <p class="eyebrow">Type</p>
+      <p class="type-big">Find what works.</p>
+      <p class="type-mono">Experiment 02 · Day 6 / 14</p>
+      <p class="muted" style="font-size:14.5px;margin-top:14px">SF Pro for everything you read. SF Mono, small and uppercase, for lab-notebook labels. Mornings are dark mode by default.</p>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <p>SelfLabs is a student project in early design. Screens show sample data. Not a medical product.</p>
+  <p><a href="../">selflabs website</a></p>
+</div></footer>
+
+<div id="solo"></div>
+
+<script src="../assets/screens.js"></script>
+<script>
+  const only = new URLSearchParams(location.search).get('only');
+  const S = window.SELFLABS_SCREENS;
+  if (only) {
+    document.body.classList.add('solo');
+    document.getElementById('solo').innerHTML = S.find((s) => s.id === only).html;
+  } else {
+    const blurbs = {
+      'Onboarding': 'Three screens, under a minute. The promise, the goal, the privacy deal.',
+      'Daily loop': 'Evening: pick one small thing. Morning: one tap and a game. Night: two taps.',
+      'Payoff': 'What the user gets back for showing up.',
+      'Social and nudges': 'Friendly competition, and the one notification worth sending.',
+    };
+    const groups = [...new Set(S.map((s) => s.group))];
+    let n = 0;
+    document.getElementById('groups').innerHTML = groups.map((g) => `
+      <section class="group" id="${g.toLowerCase().replace(/[^a-z]+/g, '-')}">
+        <div class="group-head"><h2 class="title">${g}</h2><p class="muted">${blurbs[g]}</p></div>
+        <div class="shots">${S.filter((s) => s.group === g).map((s) => `
+          <figure class="shot">
+            <div class="device">${s.html}</div>
+            <figcaption><span class="eyebrow">${String(++n).padStart(2, '0')}</span><b>${s.title}</b><span>${s.note}</span></figcaption>
+          </figure>`).join('')}</div>
+      </section>`).join('');
+  }
+</script>
+</body>
+</html>
