@@ -1,260 +1,53 @@
-/* SelfLabs — phone frame + in-app design system.
-   Screens are designed at true iPhone points (390 x 844) and scaled with `zoom`. */
+/* SelfLabs: the device frame.
+   Screens are generated into screens.js at true iPhone points (390 x 844) and
+   mounted as .device > .phone > .phone-screen + .phone-island.
+   Scale a phone (or a group of phones) by setting --z on it or any parent. */
+
+.device {
+  zoom: var(--z, 0.6);
+  flex: none;
+  width: 408px;   /* 390 + two 9px bezels: reserved before the screen mounts */
+  height: 862px;
+}
 
 .phone {
-  --ink: #0a0a0b;
-  --paper: #ffffff;
-  --fill: #f2f2f7;
-  --mute: #6e6e73;
-  --faint: #aeaeb2;
-  --line: #e5e5ea;
-  --signal: #ff5b1f;
-  --on-signal: #0a0a0b;
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
-
   position: relative;
-  flex: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
+  width: 408px;
+  height: 862px;
+  padding: 9px;
+  border-radius: 53px;
+  background: var(--bezel, #0A1640);
+  box-shadow: var(--phone-shadow, none);
+}
+
+/* `all: initial` stops page typography leaking into the artboard markup */
+.phone-screen {
+  all: initial;
+  display: block;
   width: 390px;
   height: 844px;
-  border: 12px solid #0a0a0b;
-  border-radius: 66px;
+  border-radius: 44px;
   overflow: hidden;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
-  text-align: left;
-  box-shadow: 0 0 0 1.5px #48484a, 0 50px 90px -30px rgba(0, 0, 0, 0.35);
+  background: #FFFFFF;
 }
-.phone * { box-sizing: border-box; margin: 0; padding: 0; }
-.phone.dark {
-  --ink: #f5f5f7;
-  --paper: #000000;
-  --fill: #1c1c1e;
-  --mute: #98989f;
-  --faint: #636366;
-  --line: #2c2c2e;
+.phone.dark .phone-screen { background: #0A1640; }
+
+.phone-island {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  width: 96px;
+  height: 28px;
+  margin-left: -48px;
+  border-radius: 14px;
+  background: #050B24;
 }
 
-/* ---------- chrome ---------- */
-.phone .statusbar {
-  position: absolute; inset: 0 0 auto 0; height: 54px; z-index: 5;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 6px 30px 0 44px;
-  font-size: 17px; font-weight: 600; letter-spacing: -0.02em;
-}
-.phone .island {
-  position: absolute; top: 11px; left: 50%; width: 124px; height: 36px;
-  margin-left: -62px; border-radius: 20px; background: #000;
-}
-.phone .sb-icons { display: flex; gap: 6px; align-items: center; }
-.phone .sb-icons svg { display: block; fill: currentColor; }
-.phone .homebar {
-  position: absolute; bottom: 8px; left: 50%; width: 138px; height: 5px;
-  margin-left: -69px; border-radius: 3px; background: var(--ink); z-index: 6;
-}
-.phone .content {
-  position: absolute; inset: 54px 0 34px 0;
-  display: flex; flex-direction: column;
-  padding: 18px 26px 14px;
-}
-.phone .content.tabbed { bottom: 84px; padding-bottom: 8px; }
+/* a slot whose screen has not been generated yet (or scripts are off) still reads as a phone */
+.device:empty { border-radius: 53px; box-shadow: inset 0 0 0 9px var(--bezel, #0A1640); }
 
-.phone .tabbar {
-  position: absolute; inset: auto 0 0 0; height: 84px; z-index: 4;
-  display: flex; justify-content: space-around; align-items: flex-start;
-  padding: 10px 28px 0; border-top: 1px solid var(--line); background: var(--paper);
-}
-.phone .tab {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  font-size: 11px; font-weight: 500; color: var(--faint); width: 72px;
-}
-.phone .tab svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.phone .tab.on { color: var(--ink); }
-
-/* ---------- type ---------- */
-.phone .eyebrow {
-  font-family: var(--mono); font-size: 11.5px; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute);
-}
-.phone .eyebrow b { color: var(--signal); font-weight: 600; }
-.phone h1 { font-size: 34px; line-height: 1.06; font-weight: 700; letter-spacing: -0.03em; text-wrap: balance; }
-.phone h1.xl { font-size: 42px; line-height: 1.02; letter-spacing: -0.035em; }
-.phone h2 { font-size: 22px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
-.phone .lead { font-size: 19px; line-height: 1.32; color: var(--mute); letter-spacing: -0.015em; text-wrap: balance; }
-.phone .body { font-size: 16px; line-height: 1.36; color: var(--mute); text-wrap: pretty; }
-.phone .fine { font-size: 13px; line-height: 1.35; color: var(--mute); text-align: center; text-wrap: balance; }
-.phone .num { font-variant-numeric: tabular-nums; }
-.phone .mono { font-family: var(--mono); letter-spacing: 0; }
-
-/* ---------- layout helpers ---------- */
-.phone .grow { flex: 1; }
-.phone .stack { display: flex; flex-direction: column; }
-.phone .row { display: flex; align-items: center; }
-.phone .between { justify-content: space-between; }
-.phone .g4 { gap: 4px; } .phone .g8 { gap: 8px; } .phone .g10 { gap: 10px; } .phone .g12 { gap: 12px; }
-.phone .g16 { gap: 16px; } .phone .g20 { gap: 20px; } .phone .g28 { gap: 28px; }
-.phone .mt8 { margin-top: 8px; } .phone .mt12 { margin-top: 12px; } .phone .mt16 { margin-top: 16px; }
-.phone .mt24 { margin-top: 24px; } .phone .mt32 { margin-top: 32px; } .phone .mt44 { margin-top: 44px; }
-.phone .center { align-items: center; text-align: center; }
-
-/* ---------- controls ---------- */
-.phone .btn {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  width: 100%; height: 56px; border: 0; border-radius: 28px;
-  background: var(--ink); color: var(--paper);
-  font: 600 17px/1 var(--sans); letter-spacing: -0.01em;
-}
-.phone .btn.quiet { background: transparent; color: var(--ink); height: 46px; font-weight: 500; }
-.phone .btn.soft { background: var(--fill); color: var(--ink); }
-.phone .btn.signal { background: var(--signal); color: var(--on-signal); }
-
-.phone .card { border-radius: 24px; background: var(--fill); padding: 18px 20px; }
-.phone .card.inked { background: var(--ink); color: var(--paper); }
-.phone .card.inked .eyebrow { color: color-mix(in srgb, var(--paper) 62%, transparent); }
-.phone .card.outline { background: transparent; border: 1px solid var(--line); }
-
-.phone .choice {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 60px; padding: 0 20px; border-radius: 20px; background: var(--fill);
-  font-size: 18px; font-weight: 500; letter-spacing: -0.015em;
-}
-.phone .choice.on { background: var(--ink); color: var(--paper); }
-.phone .tick {
-  width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--faint);
-  display: grid; place-items: center;
-}
-.phone .choice.on .tick { background: var(--signal); border-color: var(--signal); }
-.phone .tick svg { width: 13px; height: 13px; stroke: #0a0a0b; stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
-.phone .choice.on .tick svg { opacity: 1; }
-
-.phone .chip {
-  display: inline-flex; align-items: center; height: 28px; padding: 0 11px; border-radius: 14px;
-  background: var(--fill); font: 600 13px/1 var(--mono); color: var(--ink); white-space: nowrap;
-}
-.phone .chip.signal { background: var(--signal); color: var(--on-signal); }
-.phone .chip.ghost { background: transparent; border: 1px solid var(--line); color: var(--mute); }
-
-.phone .mark { display: block; }
-.phone .mark .ring { stroke: var(--ink); fill: none; }
-.phone .mark .dot { fill: var(--signal); }
-
-/* ---------- screen: privacy ---------- */
-.phone .plist { display: flex; flex-direction: column; }
-.phone .plist li {
-  list-style: none; display: flex; gap: 12px; align-items: center;
-  padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 16.5px; letter-spacing: -0.012em;
-}
-.phone .plist li:last-child { border-bottom: 0; }
-.phone .plist .ic {
-  flex: none; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--ink);
-}
-.phone .plist .ic svg { width: 12px; height: 12px; stroke: var(--paper); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.phone .plist.never li { color: var(--mute); }
-.phone .plist.never .ic { background: var(--fill); }
-.phone .plist.never .ic svg { stroke: var(--mute); }
-
-/* ---------- screen: experiment ---------- */
-.phone .bignum {
-  font-size: 148px; line-height: 0.84; font-weight: 700; letter-spacing: -0.06em; color: var(--signal);
-  font-variant-numeric: tabular-nums;
-}
-.phone .bignum small { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); margin-left: 6px; }
-.phone .kv { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
-.phone .kv span:first-child { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
-.phone .kv span:last-child { font-weight: 500; }
-
-/* ---------- screen: check-in faces ---------- */
-.phone .faces { display: flex; justify-content: space-between; }
-.phone .face { display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; color: var(--mute); }
-.phone .face svg { width: 100px; height: 100px; }
-.phone .face .bg { fill: var(--fill); }
-.phone .face .ft { stroke: var(--mute); fill: none; stroke-width: 4; stroke-linecap: round; }
-.phone .face .eye { fill: var(--mute); }
-.phone .face.on { color: var(--ink); }
-.phone .face.on .bg { fill: var(--signal); }
-.phone .face.on .ft { stroke: #0a0a0b; }
-.phone .face.on .eye { fill: #0a0a0b; }
-.phone .steps { display: flex; gap: 6px; justify-content: center; }
-.phone .steps i { width: 22px; height: 4px; border-radius: 2px; background: var(--line); }
-.phone .steps i.on { background: var(--ink); }
-
-/* ---------- screen: game ---------- */
-.phone .target {
-  width: 252px; height: 252px; border-radius: 50%; background: var(--signal);
-  display: grid; place-items: center; color: #0a0a0b;
-  box-shadow: 0 0 0 18px rgba(255, 91, 31, 0.16), 0 0 0 40px rgba(255, 91, 31, 0.07), 0 0 120px 10px rgba(255, 91, 31, 0.45);
-}
-.phone .target b { font-size: 60px; font-weight: 700; letter-spacing: -0.04em; }
-.phone .trials { display: flex; gap: 10px; justify-content: center; }
-.phone .trials i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
-.phone .trials i.on { background: var(--signal); }
-
-/* ---------- screen: today ---------- */
-.phone .days { display: grid; grid-template-columns: repeat(14, 1fr); gap: 5px; }
-.phone .days i { height: 6px; border-radius: 3px; background: var(--line); }
-.phone .days i.on { background: var(--ink); }
-.phone .days i.now { background: var(--signal); }
-.phone .stat { display: flex; flex-direction: column; gap: 3px; }
-.phone .stat b { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-.phone .stat b small { font-size: 14px; font-weight: 600; color: var(--mute); margin-left: 1px; }
-.phone .stat span { font-size: 13px; color: var(--mute); }
-.phone .roundcheck {
-  flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
-  border: 1.5px solid color-mix(in srgb, var(--paper) 40%, transparent);
-}
-
-/* ---------- screen: check-out scale ---------- */
-.phone .scale { display: flex; justify-content: space-between; }
-.phone .scale i {
-  width: 58px; height: 58px; border-radius: 50%; background: var(--fill); display: grid; place-items: center;
-  font: 600 19px/1 var(--sans); font-style: normal; color: var(--mute);
-}
-.phone .scale i.on { background: var(--signal); color: #0a0a0b; }
-.phone .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.phone .seg span { height: 50px; border-radius: 25px; background: var(--fill); display: grid; place-items: center; font-size: 16px; font-weight: 500; }
-.phone .seg span.on { background: var(--ink); color: var(--paper); }
-
-/* ---------- screen: playbook ---------- */
-.phone .play { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
-.phone .play:last-child { border-bottom: 0; }
-.phone .play .ix { font: 500 12px/1 var(--mono); color: var(--mute); width: 18px; }
-.phone .play .tx { flex: 1; min-width: 0; }
-.phone .play .tx b { display: block; font-size: 17px; font-weight: 600; letter-spacing: -0.015em; }
-.phone .play .tx span { display: block; font-size: 13.5px; color: var(--mute); margin-top: 2px; }
-
-/* ---------- screen: friends ---------- */
-.phone .lb { display: flex; align-items: center; gap: 14px; height: 58px; border-bottom: 1px solid var(--line); font-size: 17px; }
-.phone .lb:last-child { border-bottom: 0; }
-.phone .lb .rk { font: 500 13px/1 var(--mono); color: var(--mute); width: 14px; }
-.phone .lb .av { width: 36px; height: 36px; border-radius: 50%; background: var(--fill); display: grid; place-items: center; font-size: 14px; font-weight: 600; color: var(--mute); }
-.phone .lb .nm { flex: 1; font-weight: 500; }
-.phone .lb .sc { font: 600 15px/1 var(--mono); }
-.phone .lb .sc small { font-weight: 500; font-size: 12px; color: var(--mute); margin-left: 3px; }
-.phone .lb.me { margin: 0 -14px; padding: 0 14px; border-radius: 18px; background: var(--ink); color: var(--paper); border-bottom: 0; }
-.phone .lb.me .rk, .phone .lb.me .sc small { color: color-mix(in srgb, var(--paper) 60%, transparent); }
-.phone .lb.me .av { background: var(--signal); color: #0a0a0b; }
-.phone .lb.idle .nm, .phone .lb.idle .sc { color: var(--faint); font-weight: 500; }
-
-/* ---------- screen: lock-screen nudge ---------- */
-.phone.lock { --ink: #fff; --paper: #000; background: radial-gradient(130% 70% at 50% 108%, #7a2c0c 0%, #2a1109 38%, #07070a 78%); }
-.phone .lock-date { font-size: 21px; font-weight: 600; text-align: center; color: rgba(255, 255, 255, 0.82); letter-spacing: -0.01em; }
-.phone .lock-time { font-size: 104px; line-height: 0.95; font-weight: 600; text-align: center; letter-spacing: -0.045em; color: rgba(255, 255, 255, 0.94); font-variant-numeric: tabular-nums; }
-.phone .notif {
-  border-radius: 26px; padding: 15px 16px; background: rgba(60, 60, 67, 0.55);
-  backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); color: #fff;
-  border: 0.5px solid rgba(255, 255, 255, 0.12);
-}
-.phone .notif .app { width: 40px; height: 40px; border-radius: 10px; background: #fff; display: grid; place-items: center; flex: none; }
-.phone .notif .ttl { font-size: 15.5px; font-weight: 600; letter-spacing: -0.012em; }
-.phone .notif .msg { font-size: 15.5px; line-height: 1.3; color: rgba(255, 255, 255, 0.88); letter-spacing: -0.012em; }
-.phone .notif .when { font-size: 13px; color: rgba(255, 255, 255, 0.55); }
-.phone .notif .acts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
-.phone .notif .acts span { height: 38px; border-radius: 19px; background: rgba(255, 255, 255, 0.14); display: grid; place-items: center; font-size: 14px; font-weight: 500; }
-.phone .lock-foot { display: flex; justify-content: space-between; padding: 0 22px; }
-.phone .lock-foot i { width: 50px; height: 50px; border-radius: 50%; background: rgba(60, 60, 67, 0.5); display: block; }
+/* The screens animate (keyframes in motion.css). Hold each one at its first
+   frame until its phone scrolls into view; the page script adds .in-view.
+   Without scripts there is no .js class, so nothing is ever held. */
+.js .device:not(.in-view) .phone-screen * { animation-play-state: paused !important; }

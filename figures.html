@@ -2,209 +2,300 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>SelfLabs — figures</title>
+<title>SelfLabs · Figures</title>
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/phone.css">
+<link rel="stylesheet" href="assets/motion.css">
 <style>
-  /* Source for the figures used in the strategy doc. Open figures.html?f=<id> to see one;
-     each renders on a fixed 1280 x 720 canvas and is exported to figures/<id>.png. */
-  body { background: #fff; }
-  .fig { width: 1280px; height: 720px; padding: 56px 64px; display: none; flex-direction: column; overflow: hidden; background: #fff; }
-  .fig.show { display: flex; }
-  body.all .fig { display: flex; border-bottom: 1px solid var(--line); }
-  .fig > .eyebrow { font-size: 13px; }
-  .fig > h2 { font-size: 40px; line-height: 1.05; letter-spacing: -0.035em; margin-top: 10px; }
-  .fig .sub { font-size: 19px; color: var(--mute); margin-top: 10px; max-width: 46em; letter-spacing: -0.015em; }
-  .grow { flex: 1; }
+  /* Source for the six figures used in the strategy doc and as the share image.
+     figures.html?f=<id> shows one figure on a fixed 1280 x 720 canvas; with no ?f= all six stack.
+     Export every PNG with:  python3 tools/export_figures.py   (writes site/figures/<id>.png)
+     The figures appear about 650px wide in the doc, so nothing here is set below 18px.
+     Every rule is class-scoped so nothing leaks into the phone screens from assets/screens.js. */
+  :root {
+    --white: #FFFFFF; --blue: #2457F5; --sky: #E9F0FF; --haze: #AFC6FF; --night: #0A1640;
+    --mist: #5A688C; --line: #D8DFEE; --ring: #C5CEE3; --sun: #FFB23E;
+    --move: #FBC2C1; --sleep: #D9C9F8; --people: #A9E1CA;
+    --sans: 'Instrument Sans', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  }
+  body { margin: 0; background: var(--white); color: var(--night); font: 500 20px/26px var(--sans); -webkit-font-smoothing: antialiased; }
 
-  /* loop */
-  .loop { display: grid; grid-template-columns: repeat(4, 1fr) 28px 1.05fr; gap: 14px; align-items: stretch; }
-  .node { border-radius: 24px; background: var(--bg); padding: 22px 22px 24px; position: relative; }
-  .node .eyebrow b { color: var(--signal); }
-  .node h3 { font-size: 23px; line-height: 1.1; letter-spacing: -0.03em; margin-top: 12px; }
-  .node p { font-size: 15px; line-height: 1.38; color: var(--mute); margin-top: 8px; }
-  .node .t { font: 600 12px/1 var(--mono); margin-top: 16px; display: inline-block; padding: 7px 10px; border-radius: 12px; background: #fff; }
-  .node.dark { background: #000; color: #f5f5f7; } .node.dark p { color: #98989f; } .node.dark .t { background: #1c1c1e; }
-  .node.ink { background: var(--ink); color: #fff; } .node.ink p { color: #aeaeb2; } .node.ink .t { background: var(--signal); color: #0a0a0b; }
-  .node:not(:nth-child(4)):not(.ink)::after { content: ""; position: absolute; right: -11px; top: 50%; width: 8px; height: 8px; border-top: 2px solid var(--ink); border-right: 2px solid var(--ink); transform: translateY(-50%) rotate(45deg); z-index: 2; }
-  .arrow { display: grid; place-items: center; font-size: 26px; font-weight: 300; }
-  .repeat { margin-top: 14px; display: grid; grid-template-columns: repeat(4, 1fr) 28px 1.05fr; gap: 14px; }
-  .repeat div { grid-column: 1 / span 4; height: 34px; border: 2px solid var(--ink); border-top: 0; border-radius: 0 0 20px 20px; position: relative; }
-  .repeat span { position: absolute; left: 50%; bottom: -11px; transform: translateX(-50%); background: #fff; padding: 0 14px; font: 600 13px/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+  .fig { position: relative; box-sizing: border-box; width: 1280px; height: 720px; padding: 52px 64px; display: none; overflow: hidden; background: var(--white); }
+  .fig.show { display: block; }
+  .all .fig { display: block; border-bottom: 1px solid var(--line); }
+  .fh { margin: 0; font-size: 52px; line-height: 56px; font-weight: 600; letter-spacing: -0.035em; }
+  .fsub { margin: 10px 0 0; font-size: 22px; line-height: 28px; color: var(--mist); }
+  .blue { color: var(--blue); }
+  .abs { position: absolute; }
 
-  /* matrix */
-  table.mx { width: 100%; border-collapse: collapse; margin-top: 30px; }
-  .mx th { font: 500 12px/1.25 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mute); padding: 0 8px 14px; text-align: center; vertical-align: bottom; width: 12.5%; }
-  .mx th:first-child { text-align: left; width: 25%; padding-left: 20px; }
-  .mx td { padding: 15px 8px; text-align: center; border-top: 1px solid var(--line); }
-  .mx td:first-child { text-align: left; padding-left: 20px; }
-  .mx td b { display: block; font-size: 19px; letter-spacing: -0.02em; }
-  .mx td small { display: block; font-size: 13.5px; color: var(--mute); margin-top: 1px; }
-  .mx i { display: inline-block; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--faint); vertical-align: middle; }
-  .mx i.y { background: var(--ink); border-color: var(--ink); }
-  .mx i.h { background: linear-gradient(90deg, var(--ink) 50%, transparent 50%); border-color: var(--ink); }
-  .mx tr.us td { background: var(--ink); color: #fff; border-top: 0; }
-  .mx tr.us td:first-child { border-radius: 18px 0 0 18px; } .mx tr.us td:last-child { border-radius: 0 18px 18px 0; }
-  .mx tr.us small { color: #aeaeb2; }
-  .mx tr.us i { border-color: #636366; } .mx tr.us i.y { background: var(--signal); border-color: var(--signal); }
-  .legend { display: flex; gap: 26px; font-size: 13.5px; color: var(--mute); margin-top: 16px; align-items: center; }
-  .legend i { display: inline-block; width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--faint); margin-right: 7px; vertical-align: -2px; }
-  .legend i.y { background: var(--ink); border-color: var(--ink); } .legend i.h { background: linear-gradient(90deg, var(--ink) 50%, transparent 50%); border-color: var(--ink); }
+  /* ---------- 1. loop ---------- */
+  .loop-art { position: absolute; left: 0; top: 0; display: block; }
+  .stop { position: absolute; width: 240px; transform: translateY(-50%); }
+  .stop.l { width: 216px; text-align: right; }
+  .stop-when { margin: 0; font-size: 20px; line-height: 26px; font-weight: 600; color: var(--blue); }
+  .stop-what { margin: 2px 0 0; font-size: 27px; line-height: 30px; font-weight: 600; letter-spacing: -0.03em; text-wrap: balance; }
+  .stop-taps { margin: 6px 0 0; font-size: 20px; line-height: 26px; color: var(--mist); }
+  .loop-mid { position: absolute; left: 300px; top: 458px; width: 300px; margin: 0; text-align: center; font-size: 20px; line-height: 26px; font-weight: 600; }
+  .payoff { position: absolute; left: 916px; top: 250px; width: 300px; }
+  .payoff-day { margin: 0; font-size: 22px; line-height: 28px; color: var(--mist); }
+  .payoff-num { margin: 6px 0 0 -10px; font-size: 216px; line-height: 176px; font-weight: 500; letter-spacing: -0.05em; color: var(--blue); }
+  .payoff-what { margin: 22px 0 0; font-size: 34px; line-height: 40px; font-weight: 600; letter-spacing: -0.03em; }
+  .payoff-line { margin: 8px 0 0; font-size: 20px; line-height: 26px; color: var(--mist); text-wrap: balance; }
 
-  /* study grid */
-  .sg { margin-top: 34px; display: grid; grid-template-columns: 250px repeat(14, 1fr); gap: 8px; align-items: center; }
-  .sg .lab b { display: block; font-size: 18px; letter-spacing: -0.02em; } .sg .lab small { font-size: 13.5px; color: var(--mute); }
-  .sg .d { font: 500 12px/1 var(--mono); color: var(--mute); text-align: center; padding-bottom: 4px; }
-  .sg .c { height: 58px; border-radius: 14px; background: var(--bg); display: grid; place-items: center; font: 600 11px/1 var(--mono); color: var(--faint); letter-spacing: .04em; }
-  .sg .c.on { background: var(--signal); color: #0a0a0b; }
-  .sg .c.ink { background: var(--ink); color: #fff; height: 40px; }
-  .sg .c.base { background: repeating-linear-gradient(135deg, var(--bg) 0 6px, #e9e9ee 6px 12px); color: var(--mute); }
-  .sg .gap { grid-column: 1 / -1; height: 6px; }
-  .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
-  .notes div { border-top: 2px solid var(--ink); padding-top: 12px; font-size: 15.5px; line-height: 1.4; color: var(--mute); }
-  .notes b { color: var(--ink); display: block; font-size: 17px; letter-spacing: -0.02em; margin-bottom: 3px; }
+  /* ---------- 2. gap ---------- */
+  .mx { width: 100%; margin-top: 22px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+  .mx th { height: 60px; padding: 0 0 12px; white-space: nowrap; box-sizing: border-box; vertical-align: bottom; text-align: center; font-size: 19px; line-height: 22px; font-weight: 600; color: var(--mist); }
+  .mx th.key { color: var(--blue); }
+  .mx th:first-child { width: 330px; }
+  .mx td { height: 80px; padding: 0; text-align: center; vertical-align: middle; border-top: 1px solid var(--line); }
+  .mx td:first-child { text-align: left; }
+  .mx-name { display: block; font-size: 24px; line-height: 28px; font-weight: 600; letter-spacing: -0.02em; }
+  .mx-eg { display: block; margin-top: 2px; font-size: 18px; line-height: 22px; color: var(--mist); }
+  .m { display: inline-block; position: relative; box-sizing: border-box; width: 26px; height: 26px; border-radius: 50%; overflow: hidden; vertical-align: middle; }
+  .m.y { background: var(--night); }
+  .m.h { border: 3px solid var(--night); }
+  .m.h::before { content: ""; position: absolute; left: -3px; top: -3px; width: 13px; height: 26px; background: var(--night); }
+  .m.n { border: 3px solid var(--ring); }
+  .mx .us td { height: 88px; border-top: 0; background: var(--blue); color: var(--white); }
+  /* the band bleeds 28px past the text margins so "SelfLabs" lines up with the names above it */
+  .mx .us td:first-child, .mx .us td:last-child { position: relative; }
+  .mx .us td:first-child::before, .mx .us td:last-child::after { content: ""; position: absolute; top: 0; bottom: 0; width: 28px; background: var(--blue); }
+  .mx .us td:first-child::before { left: -28px; border-radius: 28px 0 0 28px; }
+  .mx .us td:last-child::after { right: -28px; border-radius: 0 28px 28px 0; }
+  .mx .us .mx-eg { color: var(--white); }
+  .mx .us .m.y { background: var(--white); }
+  .mx .us .m.n { border-color: #7C9BF9; }
+  .us-brand { display: flex; align-items: center; gap: 12px; }
+  .us-nim { display: block; flex: none; width: 44px; height: 44px; }
+  .legend { display: flex; align-items: center; gap: 28px; margin: 18px 0 0; font-size: 19px; line-height: 26px; color: var(--mist); }
+  .legend .m { width: 20px; height: 20px; margin-right: 8px; vertical-align: -3px; }
+  .legend .m.h::before { width: 10px; height: 20px; }
+  .legend-note { margin-left: auto; color: var(--night); font-weight: 600; }
 
-  /* timeline */
-  .tl { position: relative; margin-top: 26px; height: 440px; }
-  .tl .axis { position: absolute; left: 0; right: 0; top: 196px; height: 2px; background: var(--ink); }
-  .tl .mo { position: absolute; top: 204px; font: 500 12px/1 var(--mono); color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
-  .tl .mo::before { content: ""; position: absolute; left: 0; top: -14px; width: 1px; height: 10px; background: var(--ink); }
-  .tl .pin { position: absolute; top: 0; height: 196px; border-left: 2px solid var(--ink); padding-left: 9px; }
-  .tl .pin::after { content: ""; position: absolute; left: -7px; bottom: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--ink); }
-  .tl .pin b { display: block; font-size: 16.5px; letter-spacing: -0.02em; line-height: 1.12; white-space: nowrap; }
-  .tl .pin span { display: block; font: 500 12px/1.3 var(--mono); color: var(--mute); margin-top: 4px; white-space: nowrap; }
-  .tl .pin.go { border-color: var(--signal); } .tl .pin.go::after { background: var(--signal); }
-  .tl .pin.skip { border-left-style: dashed; border-color: var(--faint); } .tl .pin.skip::after { background: var(--faint); } .tl .pin.skip b { color: var(--mute); text-decoration: line-through; }
-  .tl .bar { position: absolute; height: 40px; border-radius: 12px; background: var(--bg); padding: 0 12px; display: flex; align-items: center; font-size: 13.5px; font-weight: 600; letter-spacing: -0.015em; white-space: nowrap; }
-  .tl .bar.o { background: var(--signal); } .tl .bar.k { background: var(--ink); color: #fff; }
-  .tl .today { position: absolute; top: 160px; font: 600 11px/1 var(--mono); letter-spacing: .08em; color: var(--signal); }
+  /* ---------- 3. study ---------- */
+  .sg { display: grid; grid-template-columns: 250px repeat(14, 1fr); column-gap: 8px; row-gap: 8px; align-items: center; margin-top: 40px; }
+  .sg-day { font-size: 19px; line-height: 24px; color: var(--mist); text-align: center; }
+  .sg-daylab { font-size: 19px; line-height: 24px; color: var(--mist); }
+  .sg-name { display: block; font-size: 24px; line-height: 28px; font-weight: 600; letter-spacing: -0.02em; }
+  .sg-eg { display: block; font-size: 18px; line-height: 22px; color: var(--mist); }
+  .sg-cell { height: 60px; display: grid; place-items: center; }
+  .sg-on { width: 52px; height: 52px; border-radius: 50%; }
+  .sg-on.walk { background: var(--move); }
+  .sg-on.phone { background: var(--sleep); }
+  .sg-off { width: 12px; height: 12px; border-radius: 50%; background: var(--line); }
+  .sg-base { align-self: stretch; display: grid; place-items: center; border-radius: 28px; background: var(--sky); font-size: 19px; line-height: 24px; font-weight: 600; color: var(--mist); }
+  .sg-row3 { margin-top: 14px; }
+  .sg-taps { display: flex; justify-content: center; gap: 5px; }
+  .sg-tap { width: 10px; height: 10px; border-radius: 50%; background: var(--blue); }
+  .sg-key { display: flex; align-items: center; gap: 28px; margin: 22px 0 0 258px; font-size: 19px; line-height: 26px; color: var(--mist); }
+  .sg-key span { display: flex; align-items: center; gap: 9px; }
+  .sg-key .sg-on { width: 22px; height: 22px; margin-right: -4px; }
+  .notes { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 40px; margin-top: 54px; }
+  .note-h { margin: 0; font-size: 24px; line-height: 28px; font-weight: 600; letter-spacing: -0.02em; }
+  .note-p { margin: 6px 0 0; font-size: 19px; line-height: 26px; color: var(--mist); text-wrap: balance; }
 
-  /* screens strip */
-  .strip { --z: 0.47; display: flex; gap: 22px; justify-content: center; margin-top: 34px; }
-  .strip .device { zoom: var(--z); }
-  .fig.dark { background: #f5f5f7; }
+  /* ---------- 4. timeline ---------- */
+  .tl { position: absolute; left: 64px; top: 196px; width: 1152px; height: 472px; }
+  .tl-axis { position: absolute; left: -8px; right: -8px; top: 196px; height: 6px; border-radius: 3px; background: var(--sky); }
+  .tl-grid { position: absolute; top: 213px; bottom: 0; width: 1px; background: var(--line); }
+  .tl-mo { position: absolute; top: 213px; font-size: 19px; line-height: 24px; color: var(--mist); }
+  .tl-today { position: absolute; top: 213px; font-size: 19px; line-height: 24px; font-weight: 600; }
+  .tl-dot { position: absolute; top: 189px; width: 20px; height: 20px; margin-left: -10px; box-sizing: border-box; border-radius: 50%; border: 4px solid var(--white); background: var(--night); }
+  .tl-stem { position: absolute; width: 2px; margin-left: -1px; background: var(--night); }
+  .tl-pin { position: absolute; padding-left: 12px; white-space: nowrap; }
+  .tl-name { display: block; font-size: 24px; line-height: 28px; font-weight: 600; letter-spacing: -0.02em; }
+  .tl-when { display: block; margin-top: 2px; font-size: 18px; line-height: 22px; color: var(--mist); }
+  .go.tl-dot, .go.tl-stem { background: var(--blue); }
+  .skip.tl-dot { background: var(--haze); }
+  .skip.tl-stem { background: var(--line); }
+  .skip .tl-name { color: var(--mist); text-decoration: line-through; text-decoration-thickness: 2px; }
+  .now.tl-dot { background: var(--sun); }
+  .tl-job { position: absolute; white-space: nowrap; font-size: 19px; line-height: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .tl-bar { position: absolute; height: 14px; border-radius: 7px; background: var(--haze); }
+  .tl-bar.build { background: var(--blue); }
+  .tl-bar.pilot { background: var(--people); }
+
+  /* ---------- 5. screens ---------- */
+  .strip { --z: 0.52; display: flex; justify-content: space-between; margin-top: 48px; }
+  .shot { margin: 0; width: calc(408px * var(--z)); }
+  .shot-cap { margin: 16px 0 0; font-size: 19px; line-height: 24px; font-weight: 600; color: var(--mist); text-align: center; text-wrap: balance; }
+
+  /* ---------- 6. share card (kept clear of the 1.91:1 crop some sites apply) ---------- */
+  .og-h { margin: 0; font-size: 132px; line-height: 122px; font-weight: 600; letter-spacing: -0.045em; white-space: nowrap; }
+  .og-nim { position: absolute; left: 742px; top: 150px; width: 540px; height: 540px; display: block; }
+  .og-brand { position: absolute; left: 64px; bottom: 76px; margin: 0; font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.03em; }
 </style>
 </head>
 <body>
 
-<!-- 1. the loop -->
+<!-- 1. the daily loop -->
 <div class="fig" id="loop">
-  <p class="eyebrow">The daily loop</p>
-  <h2>Three taps a day. One answer after fourteen.</h2>
-  <p class="sub">The user does almost nothing. The comparison between days does the work.</p>
-  <div class="grow"></div>
-  <div class="loop">
-    <div class="node"><p class="eyebrow"><b>Evening</b></p><h3>Pick tomorrow's small thing</h3><p>Or see "nothing tomorrow". Off days are the comparison.</p><span class="t">1 TAP</span></div>
-    <div class="node"><p class="eyebrow"><b>Day</b></p><h3>Live your life</h3><p>The phone notes the basics: sleep, pickups, when it went down.</p><span class="t">0 TAPS</span></div>
-    <div class="node"><p class="eyebrow"><b>Night</b></p><h3>Two taps at night</h3><p>How in control did today feel? Did you do the thing?</p><span class="t">2 TAPS</span></div>
-    <div class="node dark"><p class="eyebrow"><b>Morning</b></p><h3>One tap, one game</h3><p>How'd you wake up, then a 20-second reaction test.</p><span class="t">1 TAP + GAME</span></div>
-    <div class="arrow">→</div>
-    <div class="node ink"><p class="eyebrow" style="color:#aeaeb2">Day 14</p><h3>Your playbook</h3><p>What works for you, what doesn't matter, and how sure we are.</p><span class="t">THE PAYOFF</span></div>
+  <h2 class="fh">Ten seconds a day.<br><span class="blue">One answer after fourteen.</span></h2>
+
+  <svg class="loop-art" width="1280" height="720" viewBox="0 0 1280 720" aria-hidden="true">
+    <circle cx="450" cy="426" r="150" fill="none" stroke="#E9F0FF" stroke-width="16"/>
+    <path d="M444 265l11 11-11 11M456 587l-11-11 11-11" fill="none" stroke="#2457F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="344" cy="320" r="15" fill="#2457F5" stroke="#FFFFFF" stroke-width="5"/>
+    <circle cx="556" cy="320" r="15" fill="#2457F5" stroke="#FFFFFF" stroke-width="5"/>
+    <circle cx="556" cy="532" r="15" fill="#AFC6FF" stroke="#FFFFFF" stroke-width="5"/>
+    <circle cx="344" cy="532" r="15" fill="#2457F5" stroke="#FFFFFF" stroke-width="5"/>
+    <path d="M640 426H876M864 414l12 12-12 12" fill="none" stroke="#2457F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <svg class="abs" style="left:400px;top:352px" viewBox="0 0 120 120" width="104" height="104" role="img" aria-label="Nim"><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><path d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></svg>
+  <p class="loop-mid">Repeat for 14 days</p>
+
+  <div class="stop l" style="left:64px;top:320px"><p class="stop-when">Evening</p><p class="stop-what">Pick tomorrow&rsquo;s small thing</p><p class="stop-taps">1 tap</p></div>
+  <div class="stop" style="left:620px;top:320px"><p class="stop-when">Morning</p><p class="stop-what">One tap, one game</p><p class="stop-taps">1 tap + 20-second game</p></div>
+  <div class="stop" style="left:620px;top:532px"><p class="stop-when">Day</p><p class="stop-what">Live your life</p><p class="stop-taps">0 taps</p></div>
+  <div class="stop l" style="left:64px;top:532px"><p class="stop-when">Night</p><p class="stop-what">Two taps at night</p><p class="stop-taps">2 taps</p></div>
+
+  <div class="payoff">
+    <p class="payoff-day">Day</p>
+    <p class="payoff-num">14</p>
+    <p class="payoff-what">Your first answer</p>
+    <p class="payoff-line">What helped, what did nothing, and how sure we are. Keep going and it becomes your atlas.</p>
   </div>
-  <div class="repeat"><div><span>Repeat for 14 days</span></div></div>
-  <div class="grow"></div>
 </div>
 
 <!-- 2. the gap -->
 <div class="fig" id="gap">
-  <p class="eyebrow">What exists today</p>
-  <h2>Nobody combines all three for teens.</h2>
-  <p class="sub">Blockers control. Reports describe. Trackers correlate, but for adults who log a lot. The open spot is structured experiments, phone signals and a ten-second habit together.</p>
+  <h2 class="fh">Nobody combines all three for teens.</h2>
+  <p class="fsub">Structured experiments, phone signals and a ten-second habit.</p>
   <table class="mx">
-    <tr><th></th><th>Blocks apps</th><th>Passive phone data</th><th>Quick check-in</th><th>Structured experiments</th><th>Personal cause and effect</th><th>Built for teens</th></tr>
-    <tr><td><b>Blockers</b><small>Clearspace, Opal, One Sec, ScreenZen</small></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i class="h"></i></td></tr>
-    <tr><td><b>Built-in reports</b><small>Apple Screen Time, Digital Wellbeing</small></td><td><i class="h"></i></td><td><i class="y"></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
-    <tr><td><b>Mood trackers</b><small>Daylio, How We Feel, Finch</small></td><td><i></i></td><td><i></i></td><td><i class="y"></i></td><td><i></i></td><td><i class="h"></i></td><td><i class="h"></i></td></tr>
-    <tr><td><b>Correlation trackers</b><small>Bearable, Exist</small></td><td><i></i></td><td><i class="h"></i></td><td><i class="y"></i></td><td><i class="h"></i></td><td><i class="y"></i></td><td><i></i></td></tr>
-    <tr class="us"><td><b>SelfLabs</b><small>the plan</small></td><td><i></i></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
+    <tr><th></th><th>Blocks<br>apps</th><th class="key">Passive<br>phone data</th><th class="key">Quick<br>check-in</th><th class="key">Structured<br>experiments</th><th>Personal cause<br>and effect</th><th>Built<br>for teens</th></tr>
+    <tr><td><span class="mx-name">Blockers</span><span class="mx-eg">Clearspace, Opal, One Sec, ScreenZen</span></td><td><i class="m y"></i></td><td><i class="m y"></i></td><td><i class="m n"></i></td><td><i class="m n"></i></td><td><i class="m n"></i></td><td><i class="m h"></i></td></tr>
+    <tr><td><span class="mx-name">Built-in reports</span><span class="mx-eg">Apple Screen Time, Digital Wellbeing</span></td><td><i class="m h"></i></td><td><i class="m y"></i></td><td><i class="m n"></i></td><td><i class="m n"></i></td><td><i class="m n"></i></td><td><i class="m n"></i></td></tr>
+    <tr><td><span class="mx-name">Mood trackers</span><span class="mx-eg">Daylio, How We Feel, Finch</span></td><td><i class="m n"></i></td><td><i class="m n"></i></td><td><i class="m y"></i></td><td><i class="m n"></i></td><td><i class="m h"></i></td><td><i class="m h"></i></td></tr>
+    <tr><td><span class="mx-name">Correlation trackers</span><span class="mx-eg">Bearable, Exist</span></td><td><i class="m n"></i></td><td><i class="m h"></i></td><td><i class="m y"></i></td><td><i class="m h"></i></td><td><i class="m y"></i></td><td><i class="m n"></i></td></tr>
+    <tr class="us"><td><span class="us-brand"><svg class="us-nim" viewBox="12 14 96 96" aria-hidden="true"><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#FFFFFF"/><path d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#2457F5"/></svg><span><span class="mx-name">SelfLabs</span><span class="mx-eg">the plan</span></span></span></td><td><i class="m n"></i></td><td><i class="m y"></i></td><td><i class="m y"></i></td><td><i class="m y"></i></td><td><i class="m y"></i></td><td><i class="m y"></i></td></tr>
   </table>
-  <div class="legend"><span><i class="y"></i>Yes</span><span><i class="h"></i>Partly</span><span><i></i>No</span><span>SelfLabs skips blocking on purpose.</span></div>
+  <div class="legend"><span><i class="m y"></i>Yes</span><span><i class="m h"></i>Partly</span><span><i class="m n"></i>No</span><span class="legend-note">SelfLabs skips blocking on purpose.</span></div>
 </div>
 
 <!-- 3. the study -->
 <div class="fig" id="study">
-  <p class="eyebrow">The 14-day study</p>
-  <h2>Two experiments, repeated. Not fourteen, once each.</h2>
-  <p class="sub">A new experiment every day gives one data point each, which proves nothing. Repeating two on coin-flip days gives six "on" days to compare with the rest.</p>
-  <div class="sg">
-    <div></div>
-    <div class="d">1</div><div class="d">2</div><div class="d">3</div><div class="d">4</div><div class="d">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div><div class="d">10</div><div class="d">11</div><div class="d">12</div><div class="d">13</div><div class="d">14</div>
-    <div class="lab"><b>Walk after school</b><small>Experiment 01</small></div>
-    <div class="c base">BASE</div><div class="c base">BASE</div><div class="c on">ON</div><div class="c">–</div><div class="c on">ON</div><div class="c">–</div><div class="c">–</div><div class="c on">ON</div><div class="c on">ON</div><div class="c">–</div><div class="c on">ON</div><div class="c">–</div><div class="c">–</div><div class="c on">ON</div>
-    <div class="lab"><b>Phone down by 11:30</b><small>Experiment 02</small></div>
-    <div class="c base">BASE</div><div class="c base">BASE</div><div class="c">–</div><div class="c on">ON</div><div class="c">–</div><div class="c on">ON</div><div class="c on">ON</div><div class="c">–</div><div class="c">–</div><div class="c on">ON</div><div class="c">–</div><div class="c on">ON</div><div class="c on">ON</div><div class="c">–</div>
-    <div class="gap"></div>
-    <div class="lab"><b>Check-ins</b><small>Every day, both experiments</small></div>
-    <div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div><div class="c ink">3</div>
-  </div>
+  <h2 class="fh">Two experiments, repeated.<br><span class="blue">Not fourteen, once each.</span></h2>
+  <div class="sg" id="sg"></div>
+  <div class="sg-key"><span><i class="sg-on walk"></i><i class="sg-on phone"></i>On</span><span><i class="sg-off"></i>Off, by coin flip</span><span><span class="sg-taps"><i class="sg-tap"></i><i class="sg-tap"></i><i class="sg-tap"></i></span>3 check-ins</span></div>
   <div class="notes">
-    <div><b>Baseline first</b>Two normal days so the app knows what "usual" looks like before anything changes.</div>
-    <div><b>The app picks the days</b>If users choose, they pick good days and the result is biased. A coin flip keeps it fair.</div>
-    <div><b>Say how sure</b>Six days is an early signal, not proof. Round two repeats whatever looked promising.</div>
+    <div><p class="note-h">Baseline first</p><p class="note-p">Two normal days so the app knows what &ldquo;usual&rdquo; looks like before anything changes.</p></div>
+    <div><p class="note-h">The app picks the days</p><p class="note-p">If users choose, they pick good days and the result is biased. A coin flip keeps it fair.</p></div>
+    <div><p class="note-h">Say how sure</p><p class="note-p">One round is an early signal, not proof. Round two repeats whatever looked promising.</p></div>
   </div>
 </div>
 
 <!-- 4. timeline -->
 <div class="fig" id="timeline">
-  <p class="eyebrow">Deadlines and build plan</p>
-  <h2>Five users first. Then proposal, pitch, prototype.</h2>
-  <p class="sub">Each deadline reuses the work before it: pilot data feeds the proposal, the proposal feeds the pitch.</p>
+  <h2 class="fh">Five users first.<br><span class="blue">Then proposal, pitch, prototype.</span></h2>
   <div class="tl" id="tl"></div>
 </div>
 
 <!-- 5. screens -->
-<div class="fig dark" id="screens">
-  <p class="eyebrow">App mockups v0.1</p>
-  <h2>The loop, as five screens.</h2>
-  <div class="strip">
-    <div class="device" data-screen="experiment"></div>
-    <div class="device" data-screen="checkin"></div>
-    <div class="device" data-screen="game"></div>
-    <div class="device" data-screen="checkout"></div>
-    <div class="device" data-screen="insight"></div>
-  </div>
+<div class="fig" id="screens">
+  <h2 class="fh">The loop, as five screens.</h2>
+  <div class="strip" id="strip" data-ids="experiment checkin game checkout insight"></div>
 </div>
 
-<!-- 6. social card -->
-<div class="fig dark" id="og" style="align-items:center;text-align:center;padding-top:70px">
-  <p class="eyebrow">A study where n = you</p>
-  <h2 style="font-size:92px !important;letter-spacing:-.045em;line-height:.98;margin-top:18px">Find what works<br>for <span style="color:var(--signal)">you.</span></h2>
-  <div class="strip" style="--z:.62;margin-top:54px"><div class="device" data-screen="experiment"></div><div class="device" data-screen="today"></div><div class="device" data-screen="insight"></div></div>
+<!-- 6. share card -->
+<div class="fig" id="og">
+  <h2 class="og-h">Find what works<br><span class="blue">for you.</span></h2>
+  <svg class="og-nim" viewBox="0 0 120 120" role="img" aria-label="Nim"><ellipse cx="58" cy="110" rx="30" ry="3.5" fill="#E9F0FF"/><path d="M58 30C70 30 80 27 90 20C95 17 100 21 98 27C93 38 96 52 96 66A38 38 0 1 1 58 30Z" fill="#2457F5"/><path d="M48.32 67.90A7 7 0 1 0 61.68 67.90ZM72.32 67.90A7 7 0 1 0 85.68 67.90Z" fill="#FFFFFF"/></svg>
+  <p class="og-brand">SelfLabs</p>
 </div>
 
 <script src="assets/screens.js"></script>
 <script>
-  mountPhones();
-  // timeline: Nov 25 2026 -> Apr 30 2027 mapped onto 1152px
-  const t0 = Date.UTC(2026, 10, 22), t1 = Date.UTC(2027, 4, 2), W = 1152;
-  const x = (y, m, d) => Math.round(((Date.UTC(y, m - 1, d) - t0) / (t1 - t0)) * W);
-  const tl = document.getElementById('tl');
-  const months = [['Dec', 2026, 12], ['Jan', 2027, 1], ['Feb', 2027, 2], ['Mar', 2027, 3], ['Apr', 2027, 4]];
-  let h = '<div class="axis"></div>';
-  months.forEach(([n, y, m]) => (h += `<div class="mo" style="left:${x(y, m, 1)}px"><span style="padding-left:6px">${n}</span></div>`));
-  const pin = (cls, y, m, d, top, name, sub) => `<div class="pin ${cls}" style="left:${x(y, m, d)}px;top:${top}px;height:${196 - top}px"><b>${name}</b><span>${sub}</span></div>`;
-  h += `<div class="today" style="left:${x(2026, 11, 25) - 2}px">▼ TODAY</div>`;
-  h += pin('skip', 2026, 11, 29, 96, 'WAICY', 'NOV 29 · SKIP');
-  h += pin('go', 2027, 1, 1, 0, 'MIT THINK', 'JAN 1 · PROPOSAL · 1–2 PEOPLE');
-  h += pin('go', 2027, 1, 14, 62, 'Diamond Challenge', 'JAN 14 · NARRATIVE + 60s VIDEO');
-  h += pin('', 2027, 2, 21, 0, 'Blue Ocean', 'FEB 21 · PITCH VIDEO');
-  h += pin('', 2027, 2, 28, 62, 'Swift Student Challenge', 'FEB 28 · SOLO ENTRIES');
-  h += pin('', 2027, 4, 2, 0, 'Startup World Cup', 'APR 2–4 · CONFIRM DATE');
-  const bar = (cls, a, b, top, label) => `<div class="bar ${cls}" style="left:${x(...a)}px;width:${x(...b) - x(...a)}px;top:${top}px">${label}</div>`;
-  h += bar('k', [2026, 11, 25], [2026, 12, 7], 246, 'Build v0');
-  h += bar('o', [2026, 12, 7], [2026, 12, 28], 246, 'Pilot: 5 users');
-  h += bar('', [2026, 12, 14], [2027, 1, 1], 294, 'THINK proposal');
-  h += bar('', [2027, 1, 2], [2027, 1, 14], 294, 'Diamond');
-  h += bar('k', [2027, 1, 4], [2027, 2, 8], 342, 'v1: native app + passive signals');
-  h += bar('', [2027, 2, 1], [2027, 2, 21], 294, 'Blue Ocean video');
-  h += bar('', [2027, 2, 1], [2027, 2, 28], 390, 'Swift playgrounds (one each)');
-  h += bar('o', [2027, 2, 8], [2027, 3, 22], 342, 'Pilot 2: 15–20 users');
-  h += bar('', [2027, 3, 8], [2027, 4, 2], 294, 'SWC deck');
-  tl.innerHTML = h;
+(function () {
+  /* ---- 3. study: 14 days, two experiments. B = baseline, 1 = on, 0 = off (the app's coin flip) ---- */
+  var rows = [
+    { name: 'Walk after school', eg: 'Experiment 01', cls: 'walk', days: 'BB101001101001' },
+    { name: 'Phone down by 11:30', eg: 'Experiment 02', cls: 'phone', days: 'BB010110010110' }
+  ];
+  var g = '<div class="sg-daylab" style="grid-row:1;grid-column:1">Day</div>';
+  for (var d = 1; d <= 14; d++) g += '<div class="sg-day" style="grid-row:1;grid-column:' + (d + 1) + '">' + d + '</div>';
+  g += '<div class="sg-base" style="grid-row:2 / span 2;grid-column:2 / span 2">Baseline</div>';
+  rows.forEach(function (r, i) {
+    g += '<div style="grid-row:' + (i + 2) + ';grid-column:1"><span class="sg-name">' + r.name + '</span><span class="sg-eg">' + r.eg + '</span></div>';
+    r.days.split('').forEach(function (c, j) {
+      if (c === 'B') return;
+      g += '<div class="sg-cell" style="grid-row:' + (i + 2) + ';grid-column:' + (j + 2) + '"><i class="' + (c === '1' ? 'sg-on ' + r.cls : 'sg-off') + '"></i></div>';
+    });
+  });
+  g += '<div class="sg-row3" style="grid-row:4;grid-column:1"><span class="sg-name">Check-ins</span><span class="sg-eg">Every day, both experiments</span></div>';
+  for (d = 1; d <= 14; d++) g += '<div class="sg-row3 sg-taps" style="grid-row:4;grid-column:' + (d + 1) + '"><i class="sg-tap"></i><i class="sg-tap"></i><i class="sg-tap"></i></div>';
+  document.getElementById('sg').innerHTML = g;
 
-  const f = new URLSearchParams(location.search).get('f');
-  if (f) document.getElementById(f).classList.add('show'); else document.body.classList.add('all');
+  /* ---- 4. timeline: Nov 22 2026 to May 2 2027 mapped onto 1152px ---- */
+  var t0 = Date.UTC(2026, 10, 22), t1 = Date.UTC(2027, 4, 2), W = 1152, AXIS = 199;
+  function x(y, m, day) { return Math.round(((Date.UTC(y, m - 1, day) - t0) / (t1 - t0)) * W); }
+  var h = '';
+  [['Dec', 2026, 12], ['Jan', 2027, 1], ['Feb', 2027, 2], ['Mar', 2027, 3], ['Apr', 2027, 4]].forEach(function (mo) {
+    var mx = x(mo[1], mo[2], 1);
+    h += '<i class="tl-grid" style="left:' + mx + 'px"></i><span class="tl-mo" style="left:' + (mx + 10) + 'px">' + mo[0] + '</span>';
+  });
+  h += '<i class="tl-axis"></i>';
+  function pin(cls, y, m, day, top, name, when) {
+    var px = x(y, m, day);
+    h += '<i class="tl-stem ' + cls + '" style="left:' + px + 'px;top:' + (top + 4) + 'px;height:' + (AXIS - top - 4) + 'px"></i>';
+    h += '<i class="tl-dot ' + cls + '" style="left:' + px + 'px"></i>';
+    h += '<div class="tl-pin ' + cls + '" style="left:' + px + 'px;top:' + top + 'px"><span class="tl-name">' + name + '</span><span class="tl-when">' + when + '</span></div>';
+  }
+  pin('skip', 2026, 11, 29, 124, 'WAICY', 'Nov 29 · skip');
+  pin('go', 2027, 1, 1, 0, 'MIT THINK', 'Jan 1 · proposal · 1–2 people');
+  pin('go', 2027, 1, 14, 62, 'Diamond Challenge', 'Jan 14 · narrative + 60s video');
+  pin('', 2027, 2, 21, 0, 'Blue Ocean', 'Feb 21 · pitch video');
+  pin('', 2027, 2, 28, 62, 'Swift Student Challenge', 'Feb 28 · solo entries');
+  pin('', 2027, 4, 2, 124, 'Startup World Cup', 'Apr 2–4 · confirm date');
+  h += '<i class="tl-dot now" style="left:' + x(2026, 11, 25) + 'px"></i><span class="tl-today" style="left:0">Today</span>';
+  // work bars: one lane per kind of work so nothing overlaps
+  function bar(cls, a, b, lane, label) {
+    var top = 256 + lane * 56, left = x(a[0], a[1], a[2]), right = x(b[0], b[1], b[2]);
+    h += '<span class="tl-job" style="left:' + left + 'px;top:' + top + 'px">' + label + '</span>';
+    h += '<i class="tl-bar ' + cls + '" style="left:' + left + 'px;width:' + (right - left - 4) + 'px;top:' + (top + 28) + 'px"></i>';
+  }
+  bar('build', [2026, 11, 25], [2026, 12, 7], 0, 'Build v0');
+  bar('build', [2027, 1, 4], [2027, 2, 8], 0, 'v1: native app + passive signals');
+  bar('pilot', [2026, 12, 7], [2026, 12, 28], 1, 'Pilot: 5 users');
+  bar('pilot', [2027, 2, 8], [2027, 3, 22], 1, 'Pilot 2: 15–20 users');
+  bar('', [2026, 12, 14], [2027, 1, 1], 2, 'THINK proposal');
+  bar('', [2027, 2, 1], [2027, 2, 21], 2, 'Blue Ocean video');
+  bar('', [2027, 3, 8], [2027, 4, 2], 2, 'SWC deck');
+  bar('', [2027, 1, 2], [2027, 1, 14], 3, 'Diamond');
+  bar('', [2027, 2, 1], [2027, 2, 28], 3, 'Swift playgrounds (one each)');
+  document.getElementById('tl').innerHTML = h;
+
+  /* ---- 5. screens: phones and captions come live from assets/screens.js ---- */
+  var all = window.SELFLABS_SCREENS || [];
+  var strip = document.getElementById('strip');
+  strip.dataset.ids.split(' ').forEach(function (id) {
+    var s = all.find(function (o) { return o.id === id; });
+    var f = document.createElement('figure');
+    f.className = 'shot';
+    f.innerHTML = '<div class="device" data-screen="' + id + '"></div><figcaption class="shot-cap">' + (s ? s.title : id) + '</figcaption>';
+    strip.appendChild(f);
+  });
+  if (window.mountPhones) window.mountPhones();
+  // A figure is a still: jump every entrance animation to its end and stop the idle loops
+  // (blink, breathe) so an export can never catch Nim mid-blink.
+  function settle() {
+    if (!document.getAnimations) return;
+    document.getAnimations().forEach(function (an) {
+      var end = an.effect && an.effect.getComputedTiming().endTime;
+      try { if (end === Infinity) an.cancel(); else an.finish(); } catch (e) {}
+    });
+  }
+  requestAnimationFrame(settle);
+  window.addEventListener('load', settle);
+  setTimeout(settle, 400);
+
+  var f = new URLSearchParams(location.search).get('f');
+  var el = f && document.getElementById(f);
+  if (el && el.classList.contains('fig')) el.classList.add('show'); else document.body.classList.add('all');
+})();
 </script>
 </body>
 </html>
